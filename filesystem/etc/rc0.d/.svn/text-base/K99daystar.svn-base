@@ -1,0 +1,11 @@
+#!/bin/sh
+startuplog=/home/log/startup_shutdown.log
+touch $startuplog
+echo -n "Shutting down: " >>$startuplog
+
+stopall.sh
+
+# Print Time:
+date +%s >>$startuplog
+
+exit 0
