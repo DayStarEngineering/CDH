@@ -6,6 +6,12 @@ do
     rm -r $file >/dev/null
 done
 
+# Remove .removeme files
+for file in $(find /* | grep .removeme)
+do
+    rm -r $file >/dev/null
+done
+
 # Remove "~"s:
 rm -f /home/bin/*~
 rm -f /home/scripts/*~

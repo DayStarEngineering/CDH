@@ -121,10 +121,15 @@ int stimg::configure()
     }
 		
 	// Configure files:
-	file_path = "";
-	file_path += myConfig["file_dir"];
-	file_path += "/";
-	file_path += myConfig["file_str"];
+	file_path[0] = "";
+	file_path[0] += myConfig["file_dir0"];
+	file_path[0] += "/";
+	file_path[0] += myConfig["file_str"];
+	
+	file_path[1] = "";
+	file_path[1] += myConfig["file_dir1"];
+	file_path[1] += "/";
+	file_path[1] += myConfig["file_str"];
 	
 	// Configure scheduler:
 	captureDuration = atoi(myConfig["capture_duration"].c_str());
@@ -254,14 +259,20 @@ void* stimg::inData(void* arg)
 		ME->inDataGood = true;
 		//////////////////////////////////////////
 		
-		//////////// GET SEMS  ///////////////////
+		//////////// CAPTURE  ///////////////////
 		ME->capture = (bool) getSemaphore(ME->semid, 1);
-		ME->digMode = getSemaphore(ME->semid, 2);
 		//////////////////////////////////////////
 		
 		// Capture ON:
 		if( ME->capture )
 		{
+			//////////// GET SEMS  ///////////////////
+			ME->digMode = getSemaphore(ME->semid, 2);
+			ME->file_path_index = getSemaphore(ME->semid, 3);
+			if( ME->file_path_index < 0 || ME->file_path_index > 1 )
+				ME->file_path_index = 0;
+			//////////////////////////////////////////
+			
 			// Start main timer:
 			#if DEBUG_MODE == TIMETEST
 			gettimeofday(&totalTimer.start, NULL);
@@ -312,7 +323,7 @@ void* stimg::inData(void* arg)
 			if( (ME->digMode == 2) || (ME->digMode == 0) )
 			{
 				frame_name0.str(""); frame_name0.clear();
-				frame_name0 << ME->file_path << "_"
+				frame_name0 << ME->file_path[ME->file_path_index] << "_"
 					<< ((long)ME->img.timestamp.tv_sec) << "_" 
 					<< setw( 6 ) << setfill( '0' ) << ((long)ME->img.timestamp.tv_usec) << "_"
 					<< setw( 5 ) << setfill( '0' ) << ME->seqcnt << "_" 
@@ -326,7 +337,7 @@ void* stimg::inData(void* arg)
 			if( (ME->digMode == 2) || (ME->digMode == 1) )
 			{
 				frame_name1.str(""); frame_name1.clear();
-				frame_name1 << ME->file_path << "_" 
+				frame_name1 << ME->file_path[ME->file_path_index] << "_" 
 					<< ((long)ME->img.timestamp.tv_sec) << "_" 
 					<< setw( 6 ) << setfill( '0' ) << ((long)ME->img.timestamp.tv_usec) << "_"
 					<< setw( 5 ) << setfill( '0' ) << ME->seqcnt << "_" 
@@ -381,8 +392,8 @@ void* stimg::command(void* arg)
 	// Starting conditions:
 	setSemaphore(ME->semid,1,0);              // capture off
 	setSemaphore(ME->semid,2,ME->digMode);    // reset dig mode to whatever it was in the config file
-	ME->seqcnt = getSemaphore(ME->semid, 3);  // restore sequence count
-	setSemaphore(ME->semid,4,0);              // reset image counter
+	ME->seqcnt = getSemaphore(ME->semid, 4);  // restore sequence count
+	setSemaphore(ME->semid,5,0);              // reset image counter
 
 	
 	// Create command struct
@@ -392,8 +403,8 @@ void* stimg::command(void* arg)
 		ME->commandGood = true;
 		
 		// Update external semaphores:
-		setSemaphore(ME->semid,3,ME->seqcnt);
-		setSemaphore(ME->semid,4,ME->imgcnt);
+		setSemaphore(ME->semid,4,ME->seqcnt);
+		setSemaphore(ME->semid,5,ME->imgcnt);
 		
 		// Sleep:
  		usleep( ME->commandSleep );

@@ -29,8 +29,8 @@
   <ypix_size>2192</ypix_size>                     <!--       pixels -->
   
   <!-- Output Data to File: -->
-  <file_dir1>/data1/img</file_dir1>  		     <!--     dir path -->
-  <file_dir2>/data/img</file_dir1>  		     <!--     dir path -->
+  <file_dir0>/data1/img</file_dir0>  		     <!--     dir path -->
+  <file_dir1>/data/img</file_dir1>  		     <!--     dir path -->
   <file_str>img</file_str>                        <!--  file prefix -->
   
   <documentation>
