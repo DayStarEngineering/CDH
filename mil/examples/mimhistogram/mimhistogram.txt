@@ -1,0 +1,14 @@
+[EXAMPLE NUMBER]
+Example #150
+
+[FILE NAME]
+MImHistogram.c 
+
+[REVISION]
+Revision= 9.02.0812
+
+[SYNOPSIS]
+Synopsis: This program loads an image of a tissue sample, calculates its intensity histogram and draws it.
+
+[MODULES USED]
+Modules used: Application, system, display, buffer, graphic, image

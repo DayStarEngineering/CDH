@@ -1,0 +1,15 @@
+[EXAMPLE NUMBER]
+Example #70
+
+[FILE NAME]
+MDigHook.c
+
+[REVISION]
+Revision= 9.02.0812
+
+[SYNOPSIS]
+Synopsis: This grab example shows how to use the digitizer hook functions. It grabs a sequence of images using hooks and plays it back. It also uses events to signal the end of each grab and to annotate the buffer.
+
+[MODULES USED]
+Modules used: Application, system, display, digitizer, buffer, thread
+                                                              

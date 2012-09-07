@@ -1,0 +1,16 @@
+[EXAMPLE NUMBER]
+Example #115
+
+[FILE NAME]
+mdispwindowqt.c
+
+[REVISION]
+Revision= 9.02.0812
+
+[SYNOPSIS]
+Synopsis: This program displays a welcoming message in a user-defined Qt window and grabs (if supported) in it. It uses the MIL system and the MdispSelectWindow() function to display the MIL buffer in a user-created client window.
+          
+[MODULES USED]
+Modules used: Application, system, display, (digitizer), buffer, graphic
+
+[USE GUI]

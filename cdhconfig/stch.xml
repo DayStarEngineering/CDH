@@ -1,0 +1,36 @@
+<configuration>
+
+  <!-- Logger: -->
+  <logfile>/home/log/stch.log</logfile>
+  <loglevel>5</loglevel>
+  <logsize>5000</logsize>
+  <logmult>SINGLEFILE</logmult>
+  
+  <!-- Worker Thread Data: -->
+  <num_workers>1</num_workers>
+  
+  <!-- Sleep Times: -->
+  <run_sleep>1000000</run_sleep>
+  <command_sleep>1000000</command_sleep>          <!--           us -->
+  <monitor_sleep>1000000</monitor_sleep>          <!--           us -->
+  
+  <!-- Port Data : -->
+  <port>/dev/ttyUSB0</port>                       <!--  device name -->
+  <baud>9600</baud>                               <!--          bps -->
+  <output_type>1</output_type>                    <!-- 0=ASCI 1=HEX -->
+ 
+  <documentation>
+  <!--  
+  
+  Logger:
+  logfile:        Full path of where to store file
+  loglevel:       0-5: 5=all information, 0=fatal errors only
+  logsize:        size of logfile in bytes
+  logmult:        singlefile or multifile logs
+  
+  Sleep Times:    for each thread in microseconds
+  
+  -->
+  </documentation>
+  
+</configuration>

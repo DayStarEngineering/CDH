@@ -1,0 +1,17 @@
+[EXAMPLE NUMBER]
+Example #60
+
+[FILE NAME]
+MDigDoubleBuffering.c 
+
+[REVISION]
+Revision= 9.02.0812
+
+[SYNOPSIS]
+Synopsis: This program performs a double-buffering grab, times the processing, and displays some statistics.
+
+Note:  The double-buffering method is not recommended for real-time processing when the CPU usage is high. For more robust real-time behavior, use the MdigProcess() function. See MDigProcess.c for a complete example.
+
+[MODULES USED]
+Modules used: Application, system, display, buffer, digitizer, graphic, image processing
+

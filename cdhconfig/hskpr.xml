@@ -1,0 +1,76 @@
+<configuration>
+
+  <!-- Logger: -->
+  <logfile>/home/log/hskpr.log</logfile>
+  <loglevel>5</loglevel>
+  <logsize>5000</logsize>
+  <logmult>SINGLEFILE</logmult>
+  
+  <!-- Sleep Times: -->
+  <command_sleep>1000000</command_sleep>          <!-- micro sec -->
+  <monitor_sleep>1000000</monitor_sleep>          <!-- micro sec -->
+  
+  <!-- Worker Data: -->
+  <num_tasks>2</num_tasks>                        <!-- thread count -->
+  
+  <!-- tsk# proc# sem# lowval highval chckTime failCnt lowActn# highActn# -->       <!-- proc: sem description -->
+  <task>0 1 0 0 100 1000000 2 0 1</task>          <!-- STPRO: sem #0: [0 100] -->
+  <task>1 1 1 0 100 1000000 2 2 3</task>          <!-- STPRO: sem #1: [0 100] -->
+  
+  <num_actions>4</num_actions>                    <!-- action count -->
+  
+  <!-- actn# proc# cmd# sem# semVal -->           <!-- proc: action: sem description: value description -->
+  <action>0 1 3 0 0</action>                      <!-- STPRO: SET: sem #0 -> 0 -->
+  <action>1 1 3 0 100</action>                    <!-- STPRO: SET: sem #0 -> 100 -->
+  <action>2 1 3 1 0</action>                      <!-- STPRO: SET: sem #1 -> 0 -->
+  <action>3 1 3 1 100</action>                    <!-- STPRO: SET: sem #1 -> 100 -->
+  
+  <documentation>
+  <!--  
+  
+  Logger:
+  logfile:        Full path of where to store log file
+  loglevel:       0-5: 5=all information, 0=fatal errors only
+                    0: fatal errors
+                    1: errors
+                    2: warnings
+                    3: info
+                    4: debug
+                    5: spam
+  logsize:        Size of logfile in bytes
+  logmult:        Singlefile or multifile logs
+  
+  Sleep Times:    Times for each thread in microseconds
+  
+  Worker Data:
+  num_tasks:      Number of threads (one thread per task)
+  task:           Format is as follows:
+  				    task# process# sem# sem_low_val sem_high_val check_time...
+  				    fail_count low_action# high_action#
+  				    
+  				    Process numbers:
+  				      ALL      0
+					  STPRO    1
+					  STCH     2
+					  HSKPR    3
+					  PDOG     4
+					  DCOL     5
+					Subsystem numbers:
+					  needed???
+
+  num_actions:    Number of actions
+  action:         Format is as follows:
+  					action# process# command# sem# sem_val
+  					
+  					Command numbers:
+  					  STOP     0
+					  START    1
+					  STATUS   2
+					  SET      3
+					  GET      4
+					  DATA     5
+  
+  -->
+  </documentation>
+  
+</configuration>

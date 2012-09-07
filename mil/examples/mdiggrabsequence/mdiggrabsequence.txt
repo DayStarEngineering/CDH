@@ -1,0 +1,16 @@
+[EXAMPLE NUMBER]
+Example #40
+
+[FILE NAME]
+MDigGrabSequence.c
+
+[REVISION]
+Revision= 9.02.0812
+
+[SYNOPSIS]
+Synopsis: This example shows how to grab a sequence and archive it in real-time.
+            
+Note: This example assumes that the hard disk is sufficiently fast to keep up with the grab. Also, removing the sequence display while grabbing might help if some frames are missed during acquisition.
+                                                                   
+[MODULES USED]
+Modules used: Application, system, display, digitizer, buffer

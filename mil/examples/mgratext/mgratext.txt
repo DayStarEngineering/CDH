@@ -1,0 +1,17 @@
+[EXAMPLE NUMBER]
+Example #130
+
+[FILE NAME]
+MGraText.c 
+
+[REVISION]
+Revision= 9.02.0812
+
+[SYNOPSIS]
+Synopsis:
+This program allocates a MIL application and system, then displays
+messages using truetype fonts. It also shows how to check for errors.
+
+[MODULES USED]
+Modules used: 
+Application, system, display, buffer, graphic

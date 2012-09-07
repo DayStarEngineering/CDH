@@ -1,0 +1,35 @@
+<configuration>
+  
+  <!-- Logger: -->
+  <logfile>/home/log/ssm.log</logfile>
+  <loglevel>5</loglevel>
+  <logsize>2000000</logsize>
+  <logmult>SINGLEFILE</logmult>
+  
+  <!-- Control -->
+  <num_threads>4</num_threads>
+  <monitor_sleep>1000000</monitor_sleep>          <!-- microsec -->
+  
+  <!-- Port Data : -->
+  <port>/dev/serial/by-id/usb-FTDI_FT232R_USB_UART_A50155TX-if00-port0</port>                       <!--  device name -->
+  <baud>38400</baud>                               <!--          bps -->
+  
+  <documentation>
+  <!--  
+  
+  Logger:
+  logfile:        Full path of where to store file
+  loglevel:       0-5: 5=all information, 0=fatal errors only
+  logsize:        size of logfile in bytes
+  logmult:        singlefile or multifile logs
+  
+  Sleep Times:    for each thread in microseconds
+  
+  dcol: tasknum subsystemnum buffernum vvlen bpv numdptorequest numdpperfile binarymode filestr sleeptime numsensors
+  
+  pcol: task# subsystem# parameter# semaphore# sleeptime
+  
+  -->
+  </documentation>
+  
+</configuration>

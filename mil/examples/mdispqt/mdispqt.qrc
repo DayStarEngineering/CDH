@@ -1,0 +1,25 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/about.png</file>
+        <file>images/annotations.png</file>
+        <file>images/filenew.png</file>
+        <file>images/fileopen.png</file>
+        <file>images/filesave.png</file>
+        <file>images/filldisplay.png</file>
+        <file>images/grabstart.png</file>
+        <file>images/grabstop.png</file>
+        <file>images/imaging.png</file>
+        <file>images/notearing.png</file>
+        <file>images/nozoom.png</file>
+        <file>images/overlay.png</file>
+        <file>images/roi.png</file>
+        <file>images/roishow.png</file>
+        <file>images/toolbar.png</file>
+        <file>images/toolbardisplay.png</file>
+        <file>images/zoomin.png</file>
+        <file>images/zoomout.png</file>
+        <file>images/graphics.png</file>
+        <file>images/roi.svg</file>
+        <file>images/roishow.svg</file>
+    </qresource>
+</RCC>

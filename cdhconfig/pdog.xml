@@ -1,0 +1,37 @@
+<configuration>
+  <logfile>/home/log/pdog.log</logfile>
+  <loglevel>5</loglevel>
+  <logsize>2000000</logsize>
+  <logmult>SINGLEFILE</logmult>
+  <chktime>5</chktime>
+  
+  <numacts>6</numacts>
+  <action>0 restart_ssm.sh &gt; /dev/null &amp;</action>
+  <action>1 cdh_hs_run.sh &gt; /dev/null &amp;</action>
+  <action>2 stimg /home/conf/stimg.xml &gt; /dev/null &amp;</action>
+  <action>3 dcol /home/conf/dcol.xml &gt; /dev/null &amp;</action>
+  <action>4 stay_awake.sh &gt; /dev/null &amp;</action>
+  <action>5 sched /home/conf/sched.xml &gt; /dev/null &amp;</action>
+  
+  <numprocs>6</numprocs>
+  <process>0 ssm 6 500 SEMAPHORE 0</process>
+  <process>1 cdh_hs_run.sh 0 100 PROCESS 1</process>
+  <process>2 stimg 5 100 SEMAPHORE 2</process>
+  <process>3 dcol 4 100 SEMAPHORE 3</process>
+  <process>4 stay_awake.sh 0 100 PROCESS 4</process>
+  <process>5 sched 7 100 SEMAPHORE 5</process>
+  
+  <documentation>logfile:        Full path of where to store file
+loglevel:       0-5: 5=all information, 0=fatal errors only
+logsize:        size of logfile in bytes
+logmult:        singlefile or multifile logs
+chktime:        Checkup frequency in seconds for each process
+numprocs:       Specify number of processes to monitor
+process:        executable_name  sem_num timeout_in_seconds check_type shell_action
+<!---executable_name: is the name of the process to check
+sem_num: is the semaphore number to kick for that process
+timeout_in_seconds: time to wait with no kick before a restart of the process
+check_type: determines how to check if the process is running
+shell_action: is the action to run if the process crashes or freezes-->
+</documentation>
+</configuration>

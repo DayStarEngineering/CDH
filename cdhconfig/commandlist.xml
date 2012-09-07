@@ -1,0 +1,43 @@
+<!-- DayStar Command List -->
+
+<configuration>
+  <!-- ALL -->
+  <cmd_0_0>killsomeproc.sh</cmd_0_0>        <!-- STOP command   -->
+  <cmd_0_1>startall.sh</cmd_0_1>            <!-- START command  -->
+  <cmd_0_2>nosuchcommand.sh</cmd_0_2>       <!-- STATUS command -->
+  <!-- STPRO -->
+  <cmd_1_0>stop.sh stpro</cmd_1_0>          <!-- STOP command   -->
+  <cmd_1_1>start.sh stpro</cmd_1_1>         <!-- START command  -->
+  <cmd_1_2>status.sh stpro</cmd_1_2>        <!-- STATUS command -->
+    <!-- STCH -->
+  <cmd_2_0>stop.sh stch</cmd_2_0>           <!-- STOP command   -->
+  <cmd_2_1>start.sh stch</cmd_2_1>          <!-- START command  -->
+  <cmd_2_2>status.sh stch</cmd_2_2>         <!-- STATUS command -->
+    <!-- HSKPR -->
+  <cmd_3_0>stop.sh hskpr</cmd_3_0>          <!-- STOP command   -->
+  <cmd_3_1>start.sh hskpr</cmd_3_1>         <!-- START command  -->
+  <cmd_3_2>status.sh hskpr</cmd_3_2>        <!-- STATUS command -->
+    <!-- PDOG -->
+  <cmd_4_0>stop.sh pdog</cmd_4_0>           <!-- STOP command   -->
+  <cmd_4_1>start.sh pdog</cmd_4_1>          <!-- START command  -->
+  <cmd_4_2>status.sh pdog</cmd_4_2>         <!-- STATUS command -->
+    <!-- DCOL -->
+  <cmd_5_0>stop.sh dcol</cmd_5_0>           <!-- STOP command   -->
+  <cmd_5_1>start.sh dcol</cmd_5_1>          <!-- START command  -->
+  <cmd_5_2>status.sh dcol</cmd_5_2>         <!-- STATUS command -->
+    <!-- STIMG -->
+  <cmd_6_0>stop.sh stimg</cmd_6_0>           <!-- STOP command   -->
+  <cmd_6_1>start.sh stimg</cmd_6_1>          <!-- START command  -->
+  <cmd_6_2>status.sh stimg</cmd_6_2>         <!-- STATUS command -->
+    <!-- SCHED -->
+  <cmd_7_0>stop.sh sched</cmd_7_0>           <!-- STOP command   -->
+  <cmd_7_1>start.sh sched</cmd_7_1>          <!-- START command  -->
+  <cmd_7_2>status.sh sched</cmd_7_2>         <!-- STATUS command -->
+    <!-- EPS  -->
+  <cmd_7_0>nosuchcommand.sh</cmd_7_0>           <!-- STOP command   -->
+  <cmd_7_1>nosuchcommand.sh</cmd_7_1>          <!-- START command  -->
+  <cmd_7_2>nosuchcommand.sh</cmd_7_2>         <!-- STATUS command -->
+
+  <documentation>
+  </documentation>
+</configuration>

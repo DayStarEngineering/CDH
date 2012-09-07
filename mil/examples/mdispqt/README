@@ -1,0 +1,11 @@
+To compile this example make sure qt4.x development package is
+installed and run qmake in this directory. It will
+generate a Makefile which you can use to compile the example.
+
+$ qmake-qt4 # or qmake if only version 4.x is installed
+$ make
+
+Note: Some distro have qmake linked to Qt 3.x 
+make sure to use the right version of Qt (4.x).
+
+

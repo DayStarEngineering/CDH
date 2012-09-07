@@ -1,0 +1,278 @@
+<configuration>
+  
+  <!-- Logger: -->
+  <logfile>/home/log/sched.log</logfile>
+  <loglevel>5</loglevel>
+  <logsize>2000000</logsize>
+  <logmult>SINGLEFILE</logmult>
+  
+  <!-- Global Persistant Var Locations -->
+  <event_counter_fname>/home/gv/eventcnt.gv</event_counter_fname>
+  <curr_event_fname>/home/gv/currevent.gv</curr_event_fname>
+  
+  <!-- Data Collector Thread Data: -->
+  <!-- set up: -->
+  <event>9 3 17 1 1 10</event> <!-- turn on watchdog & sleep -->
+  <event>9 3 18 0 1 10</event> <!-- open sunshade & sleep -->
+  <event>9 3 5 2 1 10</event> <!-- turn on camera & sleep -->
+  <!-- Slow Cluster -->
+  <event>9 3 7 200 1 0</event> <!-- set exposure -->
+  <event>6 3 2 0 1 0</event> <!-- capture LG -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>6 3 2 1 1 0</event> <!-- capture HG -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>6 3 2 2 1 0</event> <!-- capture BOTH -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 1920</event>  <!-- end   + sleep for  32 min -->
+  <!-- Slow Cluster -->
+  <event>9 3 7 300 1 0</event> <!-- set exposure -->
+  <event>6 3 2 0 1 0</event> <!-- capture LG -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>6 3 2 1 1 0</event> <!-- capture HG -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>6 3 2 2 1 0</event> <!-- capture BOTH -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 1920</event>  <!-- end   + sleep for  32 min -->
+    <!-- Slow Cluster -->
+  <event>9 3 7 300 1 0</event> <!-- set exposure -->
+  <event>6 3 2 0 1 0</event> <!-- capture LG -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>6 3 2 1 1 0</event> <!-- capture HG -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>6 3 2 2 1 0</event> <!-- capture BOTH -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 1920</event>  <!-- end   + sleep for  32 min -->
+    <!-- Slow Cluster -->
+  <event>9 3 7 300 1 0</event> <!-- set exposure -->
+  <event>6 3 2 0 1 0</event> <!-- capture LG -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>6 3 2 1 1 0</event> <!-- capture HG -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>6 3 2 2 1 0</event> <!-- capture BOTH -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 1920</event>  <!-- end   + sleep for  32 min -->
+    <!-- Slow Cluster -->
+  <event>9 3 7 300 1 0</event> <!-- set exposure -->
+  <event>6 3 2 0 1 0</event> <!-- capture LG -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>6 3 2 1 1 0</event> <!-- capture HG -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>6 3 2 2 1 0</event> <!-- capture BOTH -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 1920</event>  <!-- end   + sleep for  32 min -->
+    <!-- Slow Cluster -->
+  <event>9 3 7 300 1 0</event> <!-- set exposure -->
+  <event>6 3 2 0 1 0</event> <!-- capture LG -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>6 3 2 1 1 0</event> <!-- capture HG -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>6 3 2 2 1 0</event> <!-- capture BOTH -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 1920</event>  <!-- end   + sleep for  32 min -->
+    <!-- Slow Cluster -->
+  <event>9 3 7 300 1 0</event> <!-- set exposure -->
+  <event>6 3 2 0 1 0</event> <!-- capture LG -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>6 3 2 1 1 0</event> <!-- capture HG -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>6 3 2 2 1 0</event> <!-- capture BOTH -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 1920</event>  <!-- end   + sleep for  32 min -->
+    <!-- Slow Cluster -->
+  <event>9 3 7 300 1 0</event> <!-- set exposure -->
+  <event>6 3 2 0 1 0</event> <!-- capture LG -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>6 3 2 1 1 0</event> <!-- capture HG -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>6 3 2 2 1 0</event> <!-- capture BOTH -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 1920</event>  <!-- end   + sleep for  32 min -->
+      <!-- Slow Cluster -->
+  <event>9 3 7 300 1 0</event> <!-- set exposure -->
+  <event>6 3 2 0 1 0</event> <!-- capture LG -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>6 3 2 1 1 0</event> <!-- capture HG -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>6 3 2 2 1 0</event> <!-- capture BOTH -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 1920</event>  <!-- end   + sleep for  32 min -->
+    <!-- Slow Cluster -->
+  <event>9 3 7 300 1 0</event> <!-- set exposure -->
+  <event>6 3 2 0 1 0</event> <!-- capture LG -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>6 3 2 1 1 0</event> <!-- capture HG -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>6 3 2 2 1 0</event> <!-- capture BOTH -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 1920</event>  <!-- end   + sleep for  32 min -->
+ <!-- Slow Cluster -->
+  <event>9 3 7 200 1 0</event> <!-- set exposure -->
+  <event>6 3 2 0 1 0</event> <!-- capture LG -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>6 3 2 1 1 0</event> <!-- capture HG -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>6 3 2 2 1 0</event> <!-- capture BOTH -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 1920</event>  <!-- end   + sleep for  32 min -->
+  <!-- Slow Cluster -->
+  <event>9 3 7 300 1 0</event> <!-- set exposure -->
+  <event>6 3 2 0 1 0</event> <!-- capture LG -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>6 3 2 1 1 0</event> <!-- capture HG -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>6 3 2 2 1 0</event> <!-- capture BOTH -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 1920</event>  <!-- end   + sleep for  32 min -->
+    <!-- Slow Cluster -->
+  <event>9 3 7 300 1 0</event> <!-- set exposure -->
+  <event>6 3 2 0 1 0</event> <!-- capture LG -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>6 3 2 1 1 0</event> <!-- capture HG -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>6 3 2 2 1 0</event> <!-- capture BOTH -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 1920</event>  <!-- end   + sleep for  32 min -->
+    <!-- Slow Cluster -->
+  <event>9 3 7 300 1 0</event> <!-- set exposure -->
+  <event>6 3 2 0 1 0</event> <!-- capture LG -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>6 3 2 1 1 0</event> <!-- capture HG -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>6 3 2 2 1 0</event> <!-- capture BOTH -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 1920</event>  <!-- end   + sleep for  32 min -->
+    <!-- Slow Cluster -->
+  <event>9 3 7 300 1 0</event> <!-- set exposure -->
+  <event>6 3 2 0 1 0</event> <!-- capture LG -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>6 3 2 1 1 0</event> <!-- capture HG -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>6 3 2 2 1 0</event> <!-- capture BOTH -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 1920</event>  <!-- end   + sleep for  32 min -->
+    <!-- Slow Cluster -->
+  <event>9 3 7 300 1 0</event> <!-- set exposure -->
+  <event>6 3 2 0 1 0</event> <!-- capture LG -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>6 3 2 1 1 0</event> <!-- capture HG -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>6 3 2 2 1 0</event> <!-- capture BOTH -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 1920</event>  <!-- end   + sleep for  32 min -->
+    <!-- Slow Cluster -->
+  <event>9 3 7 300 1 0</event> <!-- set exposure -->
+  <event>6 3 2 0 1 0</event> <!-- capture LG -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>6 3 2 1 1 0</event> <!-- capture HG -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>6 3 2 2 1 0</event> <!-- capture BOTH -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 1920</event>  <!-- end   + sleep for  32 min -->
+    <!-- Slow Cluster -->
+  <event>9 3 7 300 1 0</event> <!-- set exposure -->
+  <event>6 3 2 0 1 0</event> <!-- capture LG -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>6 3 2 1 1 0</event> <!-- capture HG -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>6 3 2 2 1 0</event> <!-- capture BOTH -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 1920</event>  <!-- end   + sleep for  32 min -->
+      <!-- Slow Cluster -->
+  <event>9 3 7 300 1 0</event> <!-- set exposure -->
+  <event>6 3 2 0 1 0</event> <!-- capture LG -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>6 3 2 1 1 0</event> <!-- capture HG -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>6 3 2 2 1 0</event> <!-- capture BOTH -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 1920</event>  <!-- end   + sleep for  32 min -->
+    <!-- Slow Cluster -->
+  <event>9 3 7 300 1 0</event> <!-- set exposure -->
+  <event>6 3 2 0 1 0</event> <!-- capture LG -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>6 3 2 1 1 0</event> <!-- capture HG -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>6 3 2 2 1 0</event> <!-- capture BOTH -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 1920</event>  <!-- end   + sleep for  32 min -->
+   <!-- Slow Cluster -->
+  <event>9 3 7 200 1 0</event> <!-- set exposure -->
+  <event>6 3 2 0 1 0</event> <!-- capture LG -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>6 3 2 1 1 0</event> <!-- capture HG -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>6 3 2 2 1 0</event> <!-- capture BOTH -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 1920</event>  <!-- end   + sleep for  32 min -->
+  <!-- Slow Cluster -->
+  <event>9 3 7 300 1 0</event> <!-- set exposure -->
+  <event>6 3 2 0 1 0</event> <!-- capture LG -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>6 3 2 1 1 0</event> <!-- capture HG -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>6 3 2 2 1 0</event> <!-- capture BOTH -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 1920</event>  <!-- end   + sleep for  32 min -->
+  <!-- Shutdown -->
+  <event>9 3 5 0 1 10</event> <!-- turn off camera & sleep -->
+    <event>9 3 17 0 1 10</event> <!-- turn off watchdog & sleep -->
+  <event>99 99 99 99 1 0</event> <!-- shutdown -->
+  
+  <documentation>
+  <!--  
+  
+  Logger:
+  logfile:        Full path of where to store file
+  loglevel:       0-5: 5=all information, 0=fatal errors only
+  logsize:        size of logfile in bytes
+  logmult:        singlefile or multifile logs
+  
+  <event>proc type arg1 arg2 count sleep </event>
+  -->
+  </documentation>
+  
+</configuration>

@@ -1,0 +1,18 @@
+[EXAMPLE NUMBER]
+Example #20
+
+[FILE NAME]
+MBufColor.c 
+
+[REVISION]
+Revision= 9.02.0812
+
+[SYNOPSIS]
+Synopsis:  This program demonstrates color buffer manipulations. It allocates a displayable color image buffer, displays it, and loads a color image into its left part. After that, color annotations are done in each band of the color buffer. If image processing is available, it converts the image to Hue, Luminance and Saturation (HLS), adds a certain offset to the luminance component and converts the image back to Red, Green, Blue (RGB) to display the result. 
+
+           The example also demonstrates how to display multiple images in a single display using child buffers.
+
+
+[MODULES USED]
+Modules used: Application, system, display, buffer, graphic, image processing
+

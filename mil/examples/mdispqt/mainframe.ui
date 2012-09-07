@@ -1,0 +1,807 @@
+<ui version="4.0" >
+ <class>MainFrame</class>
+ <widget class="QMainWindow" name="MainFrame" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>760</width>
+    <height>680</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>MdispQt</string>
+  </property>
+  <property name="windowIcon" >
+   <iconset resource="mdispqt.qrc" >:/images/imaging.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralWidget" >
+   <layout class="QGridLayout" >
+    <property name="margin" >
+     <number>11</number>
+    </property>
+    <property name="spacing" >
+     <number>6</number>
+    </property>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar" >
+   <property name="geometry" >
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>760</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu_File" >
+    <property name="title" >
+     <string>&amp;File</string>
+    </property>
+    <addaction name="actionNew" />
+    <addaction name="actionOpen" />
+    <addaction name="actionClose" />
+    <addaction name="actionSave" />
+    <addaction name="actionSaveAs" />
+    <addaction name="actionSaveRoiAs" />
+    <addaction name="separator" />
+    <addaction name="actionExit" />
+   </widget>
+   <widget class="QMenu" name="menu_View" >
+    <property name="title" >
+     <string>&amp;View</string>
+    </property>
+    <addaction name="actionViewStdToolbar" />
+    <addaction name="actionViewDispToolbar" />
+    <addaction name="actionViewStatusBar" />
+   </widget>
+   <widget class="QMenu" name="menu_Display" >
+    <property name="title" >
+     <string>&amp;Display</string>
+    </property>
+    <widget class="QMenu" name="menuInterpolation_Mode" >
+     <property name="title" >
+      <string>Interpolation Mode</string>
+     </property>
+     <addaction name="actionIntNearest" />
+     <addaction name="actionIntFast" />
+     <addaction name="actionIntDefault" />
+    </widget>
+    <widget class="QMenu" name="menuView_Mode" >
+     <property name="title" >
+      <string>View Mode</string>
+     </property>
+     <addaction name="actionViewDefault" />
+     <addaction name="actionViewTransparent" />
+     <addaction name="actionViewAutoScale" />
+     <addaction name="actionVieewMultiBytes" />
+     <addaction name="actionViewBitShift2" />
+     <addaction name="actionViewBitShift4" />
+     <addaction name="actionViewBitShift8" />
+    </widget>
+    <widget class="QMenu" name="menuZoom" >
+     <property name="title" >
+      <string>Zoom</string>
+     </property>
+     <addaction name="actionNoZoom" />
+     <addaction name="actionZoomOut" />
+     <addaction name="actionZoomIn" />
+    </widget>
+    <widget class="QMenu" name="menuExclusive_Display" >
+     <property name="title" >
+      <string>Exclusive Display</string>
+     </property>
+     <addaction name="actionRestrictedCursor" />
+    </widget>
+    <widget class="QMenu" name="menuDistributed_Mil" >
+     <property name="title" >
+      <string>Distributed Mil</string>
+     </property>
+     <widget class="QMenu" name="menuASynchronous_mode" >
+      <property name="title" >
+       <string>ASynchronous mode</string>
+      </property>
+      <addaction name="actionDMILASyncDisable" />
+      <addaction name="actionDMILASync1" />
+      <addaction name="actionDMILASync5" />
+      <addaction name="actionDMILASync10" />
+      <addaction name="actionDMILASync15" />
+      <addaction name="actionDMILASync30" />
+      <addaction name="actionDMILASyncMax" />
+     </widget>
+     <widget class="QMenu" name="menuCompression" >
+      <property name="title" >
+       <string>Compression</string>
+      </property>
+      <addaction name="actionDMILCompressNone" />
+      <addaction name="actionDMILCompressLossy" />
+      <addaction name="actionDMILCompressLossless" />
+     </widget>
+     <widget class="QMenu" name="menuType_Here" >
+      <property name="title" >
+       <string>Type Here</string>
+      </property>
+     </widget>
+     <widget class="QMenu" name="menuQFactor" >
+      <property name="title" >
+       <string>QFactor</string>
+      </property>
+      <addaction name="actionDMILFactor60" />
+      <addaction name="actionDMILFactor70" />
+      <addaction name="actionDMILFactor75" />
+      <addaction name="actionDMILFactor80" />
+      <addaction name="actionDMILFactor82" />
+      <addaction name="actionDMILFactor85" />
+      <addaction name="actionDMILFactor87" />
+      <addaction name="actionDMILFactor90" />
+      <addaction name="actionDMILFactor92" />
+      <addaction name="actionDMILFactor95" />
+      <addaction name="actionDMILFactor99" />
+     </widget>
+     <addaction name="menuASynchronous_mode" />
+     <addaction name="menuCompression" />
+     <addaction name="menuQFactor" />
+     <addaction name="menuType_Here" />
+    </widget>
+    <addaction name="actionOverlay" />
+    <addaction name="actionFillDisplay" />
+    <addaction name="actionNoTearing" />
+    <addaction name="actionX11Annotation" />
+    <addaction name="menuInterpolation_Mode" />
+    <addaction name="menuView_Mode" />
+    <addaction name="menuZoom" />
+    <addaction name="separator" />
+    <addaction name="menuDistributed_Mil" />
+    <addaction name="separator" />
+    <addaction name="actionROIDefine" />
+    <addaction name="actionROIShow" />
+    <addaction name="actionROIPreferences" />
+    <addaction name="separator" />
+    <addaction name="menuExclusive_Display" />
+   </widget>
+   <widget class="QMenu" name="menu_Grab" >
+    <property name="title" >
+     <string>&amp;Grab</string>
+    </property>
+    <addaction name="actionGrabStart" />
+    <addaction name="actionGrabStop" />
+   </widget>
+   <widget class="QMenu" name="menuHelp" >
+    <property name="title" >
+     <string>Window</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuHelp_2" >
+    <property name="title" >
+     <string>Help</string>
+    </property>
+    <addaction name="actionAbout" />
+   </widget>
+   <addaction name="menu_File" />
+   <addaction name="menu_View" />
+   <addaction name="menu_Display" />
+   <addaction name="menu_Grab" />
+   <addaction name="menuHelp_2" />
+   <addaction name="menuHelp" />
+  </widget>
+  <widget class="QToolBar" name="StdToolBar" >
+   <property name="orientation" >
+    <enum>Qt::Horizontal</enum>
+   </property>
+   <attribute name="toolBarArea" >
+    <number>4</number>
+   </attribute>
+   <addaction name="actionNew" />
+   <addaction name="actionOpen" />
+   <addaction name="actionSave" />
+   <addaction name="actionGrabStart" />
+   <addaction name="actionGrabStop" />
+  </widget>
+  <widget class="QStatusBar" name="statusBar" />
+  <widget class="QToolBar" name="DispToolBar" >
+   <property name="windowTitle" >
+    <string>toolBar</string>
+   </property>
+   <property name="orientation" >
+    <enum>Qt::Horizontal</enum>
+   </property>
+   <attribute name="toolBarArea" >
+    <number>4</number>
+   </attribute>
+   <addaction name="actionOverlay" />
+   <addaction name="actionZoomIn" />
+   <addaction name="actionZoomOut" />
+   <addaction name="actionNoZoom" />
+   <addaction name="actionFillDisplay" />
+   <addaction name="actionX11Annotation" />
+   <addaction name="actionGraphicsAnnotations" />
+   <addaction name="actionNoTearing" />
+   <addaction name="actionROIDefine" />
+   <addaction name="actionROIShow" />
+  </widget>
+  <action name="actionOpen" >
+   <property name="icon" >
+    <iconset resource="mdispqt.qrc" >:/images/fileopen.png</iconset>
+   </property>
+   <property name="text" >
+    <string>&amp;Open</string>
+   </property>
+   <property name="toolTip" >
+    <string>Open an existing document</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionNew" >
+   <property name="icon" >
+    <iconset resource="mdispqt.qrc" >:/images/filenew.png</iconset>
+   </property>
+   <property name="text" >
+    <string>&amp;New</string>
+   </property>
+   <property name="toolTip" >
+    <string>Open a new document</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="actionSave" >
+   <property name="icon" >
+    <iconset resource="mdispqt.qrc" >:/images/filesave.png</iconset>
+   </property>
+   <property name="text" >
+    <string>&amp;Save</string>
+   </property>
+   <property name="toolTip" >
+    <string>Save image</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionSaveAs" >
+   <property name="text" >
+    <string>Save &amp;As</string>
+   </property>
+   <property name="toolTip" >
+    <string>Save image as</string>
+   </property>
+  </action>
+  <action name="actionSaveRoiAs" >
+   <property name="text" >
+    <string>Save &amp;Roi as...</string>
+   </property>
+   <property name="toolTip" >
+    <string>Save Roi as</string>
+   </property>
+  </action>
+  <action name="actionExit" >
+   <property name="text" >
+    <string>E&amp;xit</string>
+   </property>
+   <property name="toolTip" >
+    <string>Exit</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+X</string>
+   </property>
+  </action>
+  <action name="actionClose" >
+   <property name="text" >
+    <string>Close</string>
+   </property>
+   <property name="toolTip" >
+    <string>Close the active document</string>
+   </property>
+  </action>
+  <action name="actionViewStdToolbar" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="checked" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>Standard &amp;Toolbar</string>
+   </property>
+   <property name="toolTip" >
+    <string>View Standard ToolBar</string>
+   </property>
+  </action>
+  <action name="actionViewDispToolbar" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="checked" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>&amp;Dispplay Toolbar</string>
+   </property>
+   <property name="toolTip" >
+    <string>View Display ToolBar</string>
+   </property>
+  </action>
+  <action name="actionViewStatusBar" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="checked" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>View StatusBar</string>
+   </property>
+   <property name="toolTip" >
+    <string>View StatusBar</string>
+   </property>
+  </action>
+  <action name="actionOverlay" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="icon" >
+    <iconset resource="mdispqt.qrc" >:/images/overlay.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Overlay</string>
+   </property>
+   <property name="toolTip" >
+    <string>Enable/Disable Overlay</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+Shift+O</string>
+   </property>
+  </action>
+  <action name="actionFillDisplay" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="icon" >
+    <iconset resource="mdispqt.qrc" >:/images/filldisplay.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Fill Display</string>
+   </property>
+  </action>
+  <action name="actionNoTearing" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="icon" >
+    <iconset resource="mdispqt.qrc" >:/images/notearing.png</iconset>
+   </property>
+   <property name="text" >
+    <string>No-Tearing</string>
+   </property>
+  </action>
+  <action name="actionX11Annotation" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="icon" >
+    <iconset resource="mdispqt.qrc" >:/images/annotations.png</iconset>
+   </property>
+   <property name="text" >
+    <string>X11 Annotations</string>
+   </property>
+  </action>
+  <action name="actionIntNearest" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>M_&amp;Nearest</string>
+   </property>
+  </action>
+  <action name="actionIntFast" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>M_&amp;Fast</string>
+   </property>
+  </action>
+  <action name="actionIntDefault" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>M_&amp;DEFAULT</string>
+   </property>
+  </action>
+  <action name="actionViewDefault" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>M_DEFAULT</string>
+   </property>
+  </action>
+  <action name="actionViewTransparent" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>M_TRANSPARENT</string>
+   </property>
+  </action>
+  <action name="actionViewAutoScale" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>M_AUTO_SCALE</string>
+   </property>
+  </action>
+  <action name="actionVieewMultiBytes" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>M_MULTI_BYTES</string>
+   </property>
+  </action>
+  <action name="actionViewBitShift2" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>M_BIT_SHIFT:2</string>
+   </property>
+  </action>
+  <action name="actionViewBitShift4" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>M_BIT_SHIFT:4</string>
+   </property>
+  </action>
+  <action name="actionViewBitShift8" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>M_BIT_SHIFT:8</string>
+   </property>
+  </action>
+  <action name="actionZoomIn" >
+   <property name="icon" >
+    <iconset resource="mdispqt.qrc" >:/images/zoomin.png</iconset>
+   </property>
+   <property name="text" >
+    <string>ZoomIn</string>
+   </property>
+   <property name="toolTip" >
+    <string>Zoom In</string>
+   </property>
+  </action>
+  <action name="actionZoomOut" >
+   <property name="icon" >
+    <iconset resource="mdispqt.qrc" >:/images/zoomout.png</iconset>
+   </property>
+   <property name="text" >
+    <string>ZoomOut</string>
+   </property>
+   <property name="toolTip" >
+    <string>Zoom Out</string>
+   </property>
+  </action>
+  <action name="actionNoZoom" >
+   <property name="icon" >
+    <iconset resource="mdispqt.qrc" >:/images/nozoom.png</iconset>
+   </property>
+   <property name="text" >
+    <string>NoZoom</string>
+   </property>
+  </action>
+  <action name="actionROIDefine" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="icon" >
+    <iconset resource="mdispqt.qrc" >:/images/roi.svg</iconset>
+   </property>
+   <property name="text" >
+    <string>ROI Define</string>
+   </property>
+  </action>
+  <action name="actionROIShow" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="icon" >
+    <iconset resource="mdispqt.qrc" >:/images/roishow.svg</iconset>
+   </property>
+   <property name="text" >
+    <string>Show/Hide ROI</string>
+   </property>
+  </action>
+  <action name="actionROIPreferences" >
+   <property name="text" >
+    <string>ROI Preferences...</string>
+   </property>
+  </action>
+  <action name="actionRestrictedCursor" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>Restricted Cursor</string>
+   </property>
+  </action>
+  <action name="actionDMILASyncDisable" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>Disable</string>
+   </property>
+  </action>
+  <action name="actionDMILASync1" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>1 fps</string>
+   </property>
+  </action>
+  <action name="actionDMILASync5" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>5 fps</string>
+   </property>
+  </action>
+  <action name="actionDMILASync10" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>10 fps</string>
+   </property>
+  </action>
+  <action name="actionDMILASync15" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>15 fps</string>
+   </property>
+  </action>
+  <action name="actionDMILASync30" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>30 fps</string>
+   </property>
+  </action>
+  <action name="actionDMILASyncMax" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>Maximum rate</string>
+   </property>
+  </action>
+  <action name="actionDMILCompressNone" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>None</string>
+   </property>
+  </action>
+  <action name="actionDMILCompressLossy" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>Lossy</string>
+   </property>
+  </action>
+  <action name="actionDMILCompressLossless" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>Lossless</string>
+   </property>
+  </action>
+  <action name="actionDMILFactor60" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>60</string>
+   </property>
+  </action>
+  <action name="actionDMILFactor70" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>70</string>
+   </property>
+  </action>
+  <action name="actionDMILFactor75" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>75</string>
+   </property>
+  </action>
+  <action name="actionDMILFactor80" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>80</string>
+   </property>
+  </action>
+  <action name="actionDMILFactor82" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>82</string>
+   </property>
+  </action>
+  <action name="actionDMILFactor85" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>85</string>
+   </property>
+  </action>
+  <action name="actionDMILFactor87" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>87</string>
+   </property>
+  </action>
+  <action name="actionDMILFactor90" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>90</string>
+   </property>
+  </action>
+  <action name="actionDMILFactor92" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>92</string>
+   </property>
+  </action>
+  <action name="actionDMILFactor95" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>95</string>
+   </property>
+  </action>
+  <action name="actionDMILFactor99" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>99</string>
+   </property>
+  </action>
+  <action name="actionGrabStart" >
+   <property name="icon" >
+    <iconset resource="mdispqt.qrc" >:/images/grabstart.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Start</string>
+   </property>
+  </action>
+  <action name="actionGrabStop" >
+   <property name="icon" >
+    <iconset resource="mdispqt.qrc" >:/images/grabstop.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Stop</string>
+   </property>
+  </action>
+  <action name="actionGraphicsAnnotations" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="icon" >
+    <iconset resource="mdispqt.qrc" >:/images/graphics.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Graphics Annotations</string>
+   </property>
+  </action>
+  <action name="actionAbout" >
+   <property name="text" >
+    <string>About MdispQt...</string>
+   </property>
+  </action>
+  <action name="action_Cascade" >
+   <property name="text" >
+    <string>&amp;Cascade</string>
+   </property>
+   <property name="toolTip" >
+    <string>Arrange Windows so the overlap</string>
+   </property>
+  </action>
+  <action name="action_Tile" >
+   <property name="text" >
+    <string>&amp;Tile</string>
+   </property>
+   <property name="toolTip" >
+    <string>Arrange Windows as non-overlapping tiles</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11" />
+ <resources>
+  <include location="mdispqt.qrc" />
+ </resources>
+ <connections>
+  <connection>
+   <sender>actionViewStdToolbar</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>StdToolBar</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>69</x>
+     <y>44</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionViewDispToolbar</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>DispToolBar</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>369</x>
+     <y>44</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionViewStatusBar</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>statusBar</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>299</x>
+     <y>388</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

@@ -1,0 +1,19 @@
+[EXAMPLE NUMBER]
+Example #185
+
+[FILE NAME]
+MImDeinterlace.c 
+
+[REVISION]
+Revision= 9.02.0812
+
+[SYNOPSIS]
+Synopsis: This program performs deinterlacing on an image. 
+ 
+          First, a static image is deinterlaced.
+          Then, if a dig can be allocated on the system, 
+          grabbed images are deinterlaced.
+
+[MODULES USED]
+Modules used: Application, system, display, buffer, image processing, (digitizer) if available
+              

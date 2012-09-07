@@ -1,0 +1,66 @@
+<configuration>
+
+  <!-- Logger: -->
+  <logfile>/home/log/stpro.log</logfile>
+  <loglevel>5</loglevel>
+  <logsize>5000</logsize>
+  <logmult>SINGLEFILE</logmult>
+  
+  <!-- Worker Thread Data: -->
+  <num_workers>1</num_workers>
+  
+  <!-- Signal Exposure Times -->
+  <signal_sec>1</signal_sec>                      <!--            s -->
+  <signal_usec>100</signal_usec>                  <!--           us -->
+  
+  <!-- Sleep Times: -->
+  <command_sleep>1000000</command_sleep>          <!--           us -->
+  <monitor_sleep>1000000</monitor_sleep>          <!--           us -->
+  
+  <!-- Digitizer Data: -->
+  <dig_DCF>/home/conf/RollingShuttterDualBaseTP.dcf</dig_DCF>
+  <xpix_size>2560</xpix_size>                      <!--       pixels -->
+  <ypix_size>2160</ypix_size>                      <!--       pixels -->
+  
+  <!-- Processing Data: -->
+  <xfov>0.125112182</xfov>                        <!--      radians --> <!-- 7.1684 degrees -->
+  <yfov>0.105564494</yfov>                        <!--      radians --> <!-- 6.0484  degrees -->
+  <max_star_count>100</max_star_count>            <!--       counts -->
+  <max_star_to_return>32</max_star_to_return>     <!--       counts -->
+  <num_sigma>1.95</num_sigma>
+  <min_pix_per_star>30</min_pix_per_star>          <!-- 3x3 -->
+  <max_pix_per_star>5000</max_pix_per_star>        <!-- 10x10 -->
+  <bit_resolution>11</bit_resolution>             <!-- CMOS ADC Resolution -->
+  <median_subsample>50000</median_subsample>
+  
+  <!-- Output Data to File: -->
+  <write_to_file>1</write_to_file>                <!--         bool -->
+  <numdpperfile>100000</numdpperfile>                 <!--       counts -->
+  <partsdir>/data/startracking/parts</partsdir>   <!--     dir path -->
+  <donedir>/data/startracking/done</donedir>      <!--     dir path -->
+  <filestr>st</filestr>                           <!--  file prefix -->
+  
+  <!-- Output Data to Port: -->
+  <write_to_port>1</write_to_port>                <!--         bool -->
+  <port>/dev/ttyS1</port>                         <!--  device name -->
+  <baud>9600</baud>                               <!--          bps -->
+  <output_type>1</output_type>                    <!-- 0=ASCI 1=HEX -->
+  
+  <!-- Testing -->
+  <test_image>/home/debug/3_31_12_11_Orion.raw</test_image>
+ 
+  <documentation>
+  <!--  
+  
+  Logger:
+  logfile:        Full path of where to store file
+  loglevel:       0-5: 5=all information, 0=fatal errors only
+  logsize:        size of logfile in bytes
+  logmult:        singlefile or multifile logs
+  
+  Sleep Times:    for each thread in microseconds
+  
+  -->
+  </documentation>
+  
+</configuration>

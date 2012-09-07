@@ -1,0 +1,14 @@
+[EXAMPLE NUMBER]
+Example #30
+
+[FILE NAME]
+MDigGrab.c 
+
+[REVISION]
+Revision= 9.02.0812
+
+[SYNOPSIS]
+Synopsis:  This program demonstrates how to grab from a camera in continuous and monoshot mode.
+
+[MODULES USED]
+Modules used: Application, system, display, digitizer, buffer

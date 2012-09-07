@@ -1,0 +1,17 @@
+[EXAMPLE NUMBER]
+Example #120
+
+[FILE NAME]
+mdispgtk
+
+[REVISION]
+Revision= 9.02.0812
+
+[SYNOPSIS]
+Synopsis:  This example shows how to use MIL in an Gtk project. It integrates Gtk menus, menu bars, scrollbars, user-created child windows, region-of-interest(ROI) management, etc. with MIL displays, buffers, timers and a digitizer.
+
+[MODULES USED]
+Modules used: Application, system, display, (digitizer), buffer
+
+[USE GUI]
+                                                              

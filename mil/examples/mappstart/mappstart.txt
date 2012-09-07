@@ -1,0 +1,16 @@
+[EXAMPLE NUMBER]
+Example #10
+
+[FILE NAME]
+MAppStart.c 
+
+[REVISION]
+Revision= 9.02.0812
+
+[SYNOPSIS]
+Synopsis:
+This program allocates a MIL application and system, then displays a welcoming message using graphics functions. It also shows how to check for errors.
+
+[MODULES USED]
+Modules used: 
+Application, system, display, buffer, graphic

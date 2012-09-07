@@ -1,0 +1,54 @@
+<configuration>
+  
+  <!-- Logger: -->
+  <logfile>/home/log/dcol.log</logfile>
+  <loglevel>5</loglevel>
+  <logsize>2000000</logsize>
+  <logmult>SINGLEFILE</logmult>
+  
+  <!-- Data Collector Thread Data: -->
+  <num_dcol>5</num_dcol>
+  <dcol>0 0 9 8 2 900 eps_0 10</dcol>   <!-- EPS: buffer 0 (computer current) -->
+  <dcol>1 1 9 8 2 900 eps_1 10</dcol>   <!-- EPS: buffer 1 (CMOS current)     -->
+  <dcol>2 2 9 8 2 900 eps_2 10</dcol>   <!-- EPS: buffer 2 (computer voltage) -->
+  <dcol>3 3 9 8 2 900 eps_3 10</dcol>   <!-- EPS: buffer 3 (CMOS voltage)     -->
+  <dcol>4 4 9 8 2 900 eps_4 10</dcol>   <!-- EPS: buffer 4 (temperature)      -->
+
+  <!-- Parameter Collector Thread Data: -->
+  <!--<num_pcol>2</num_pcol>-->
+  <!--<pcol>0 1 1 1000000</pcol>-->                    <!-- EPS: param 1 sem 1 -->
+  <!--<pcol>1 2 2 1000000</pcol>-->                    <!-- EPS: param 2 sem 2 -->
+  
+  <!-- Timer Reset Command: -->
+  <timer_param>0</timer_param>                    <!-- param 0 -->
+  <timer_val>0</timer_val>                        <!-- value 0 -->
+  <timer_sleep>1000000</timer_sleep>             <!-- microsec -->
+  <timer_reset_interval>60</timer_reset_interval> <!-- seconds -->
+  
+  <!-- Sleep Times: -->
+  <command_sleep>1000000</command_sleep>          <!-- microsec -->
+  <monitor_sleep>1000000</monitor_sleep>          <!-- microsec -->
+  
+  <!-- File Data: -->
+  <partsdir>/data/eps/parts</partsdir>
+  <donedir>/data/eps/done</donedir>
+  
+  <documentation>
+  <!--  
+  
+  Logger:
+  logfile:        Full path of where to store file
+  loglevel:       0-5: 5=all information, 0=fatal errors only
+  logsize:        size of logfile in bytes
+  logmult:        singlefile or multifile logs
+  
+  Sleep Times:    for each thread in microseconds
+  
+  dcol: tasknum buffernum numdptorequest vvlen bpv numdpperfile filestr sleeptime(s)
+  pcol: tasknum parameternum semaphorenum sleeptime(us)
+  timer: parameternum parameterval resetinterval(s) sleeptime(us)
+  
+  -->
+  </documentation>
+  
+</configuration>

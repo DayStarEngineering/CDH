@@ -1,0 +1,30 @@
+<configuration>
+  
+  <!-- Digitizer Data: -->
+  <grab_DCF>/home/conf/Rev3_LG.dcf</grab_DCF>
+  <grab_dig_num>0</grab_dig_num>
+  <grab2_DCF1>/home/conf/Rev3_LG.dcf</grab2_DCF1>
+  <grab2_dig_num1>0</grab2_dig_num1>
+  <grab2_DCF2>/home/conf/Rev3_HG.dcf</grab2_DCF2>
+  <grab2_dig_num2>1</grab2_dig_num2>
+  <xpix_size>2592</xpix_size>                      <!--       pixels -->
+  <ypix_size>2192</ypix_size>                      <!--       pixels -->
+  
+  <grabc_sleep_us>10</grabc_sleep_us>             <!--   microseconds -->
+  
+  <!-- Centroiding Data: -->
+  <xfov>0.125112182</xfov>                        <!--      radians --> <!-- 7.1684 degrees -->
+  <yfov>0.105564494</yfov>                        <!--      radians --> <!-- 6.0484  degrees -->
+  <max_star_count>100</max_star_count>            <!--       counts -->
+  <max_star_to_return>32</max_star_to_return>     <!--       counts -->
+  <num_sigma>2.9</num_sigma>
+  <min_pix_per_star>30</min_pix_per_star>          <!-- 3x3 -->
+  <max_pix_per_star>5000</max_pix_per_star>        <!-- 10x10 -->
+  <bit_resolution>11</bit_resolution>             <!-- CMOS ADC Resolution -->
+  <median_subsample>50000</median_subsample>
+ 
+  <documentation>
+
+  </documentation>
+  
+</configuration>
