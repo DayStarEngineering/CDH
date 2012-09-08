@@ -270,7 +270,10 @@ void* stimg::inData(void* arg)
 			ME->digMode = getSemaphore(ME->semid, 2);
 			ME->file_path_index = getSemaphore(ME->semid, 3);
 			if( ME->file_path_index < 0 || ME->file_path_index > 1 )
+			{
 				ME->file_path_index = 0;
+				setSemaphore(ME->semid, 3, ME->file_path_index);
+			}
 			//////////////////////////////////////////
 			
 			// Start main timer:
@@ -392,6 +395,7 @@ void* stimg::command(void* arg)
 	// Starting conditions:
 	setSemaphore(ME->semid,1,0);              // capture off
 	setSemaphore(ME->semid,2,ME->digMode);    // reset dig mode to whatever it was in the config file
+	setSemaphore(ME->semid,3,0);              // set image store dir to zero by default
 	ME->seqcnt = getSemaphore(ME->semid, 4);  // restore sequence count
 	setSemaphore(ME->semid,5,0);              // reset image counter
 
