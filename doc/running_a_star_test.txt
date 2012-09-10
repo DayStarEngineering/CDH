@@ -1,0 +1,6 @@
+1) Turn on DayStar.
+2) Make sure it is in testing mode. Run: 'makeTestReady.sh' (WARNING: This will delete all the data on the system! If you wan't to keep the data run: 'stopall.sh && resetSched.sh && rctest.sh'
+3) Reboot. Run: 'reboot'
+4) When the system comes back up, you should be ready to test. Start stimg. Run: 'stcl -h stimg start'.
+5) Now lets start the scheduler. Run: 'sched /home/conf/sched_star_test.xml'. When the program gives you the prompt back the scheduler has finished.
+6) If you wan't to run the scheduler again, run: 'stopall.sh && resetSched.sh && startvital.sh'. Then repeat steps 4 & 5.

@@ -21,7 +21,7 @@ int MILDigitizer::create(MIL_ID systemID, const char* DCFfilename, int digNum)
 	if( MdigAlloc(systemID, digNum, MIL_TEXT(DCFfilename) /*MIL_TEXT("M_DEFAULT")*/, M_DEFAULT, &ID) == M_NULL )
 	   		return -1;
 	   	
-	MdigControl(ID,M_GRAB_TIMEOUT,100); // default is infinite... value > 0 is wait time in msec
+	MdigControl(ID,M_GRAB_TIMEOUT,500); // default is infinite... value > 0 is wait time in msec
 									 
 	return 0;
 }
@@ -57,8 +57,8 @@ int MILDigitizer2::create(MIL_ID systemID, const char* DCFfilename1, const char*
 	if( MdigAlloc(systemID, digNum2, MIL_TEXT(DCFfilename2) /*MIL_TEXT("M_DEFAULT")*/, M_DEFAULT, &ID[1]) == M_NULL )
 	   		return -1;
 	   	
-	MdigControl(ID[0],M_GRAB_TIMEOUT,100); // default is infinite... value > 0 is wait time in msec
-	MdigControl(ID[1],M_GRAB_TIMEOUT,100); // default is infinite... value > 0 is wait time in msec 
+	MdigControl(ID[0],M_GRAB_TIMEOUT,500); // default is infinite... value > 0 is wait time in msec
+	MdigControl(ID[1],M_GRAB_TIMEOUT,500); // default is infinite... value > 0 is wait time in msec 
 	// MdigControl(ID[0],M_GRAB_MODE,M_ASYNCHRONOUS);
 	// MdigControl(ID[1],M_GRAB_MODE,M_ASYNCHRONOUS);
 	return 0;

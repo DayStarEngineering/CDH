@@ -1,0 +1,81 @@
+<configuration>
+  
+  <!-- Logger: -->
+  <logfile>/home/log/sched.log</logfile>
+  <loglevel>5</loglevel>
+  <logsize>2000000</logsize>
+  <logmult>SINGLEFILE</logmult>
+  
+  <!-- Global Persistant Var Locations -->
+  <event_counter_fname>/home/gv/eventcnt.gv</event_counter_fname>
+  <curr_event_fname>/home/gv/currevent.gv</curr_event_fname>
+  
+  <!-- Data Collector Thread Data: -->
+  <!-- set up: -->
+  <event>9 3 17 1 1 1</event> <!-- turn on watchdog & sleep -->
+  <event>9 3 18 0 1 1</event> <!-- open sunshade & sleep -->
+  <event>9 3 5 2 1 10</event> <!-- turn on camera & sleep -->
+  <event>6 3 3 0 1 1</event>  <!-- set the HD to store images to -->
+  
+  <!-- Fast Cluster -->
+  <event>9 3 7 100 1 0</event> <!-- set exposure to 10 -->
+  <event>9 3 10 16 1 0</event> <!-- set pre-scan rows to 16,  -->
+  <event>9 3 5 0 1 2</event> <!-- camera off -->
+  <event>9 3 5 2 1 3</event> <!-- camera on -->
+  <event>6 3 2 0 1 0</event> <!-- capture LG -->
+  <event>6 3 1 1 1 5</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>9 3 7 300 1 0</event> <!-- set exposure to 30 -->
+  <event>9 3 10 16 1 0</event> <!-- set pre-scan rows to 16,  -->
+  <event>9 3 5 0 1 2</event> <!-- camera off -->
+  <event>9 3 5 2 1 3</event> <!-- camera on -->
+  <event>6 3 2 0 1 0</event> <!-- capture LG -->
+  <event>6 3 1 1 1 5</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>9 3 7 500 1 0</event> <!-- set exposure to 50 -->
+  <event>9 3 10 1080 1 0</event> <!-- set pre-scan rows to 1080,  -->
+  <event>9 3 5 0 1 2</event> <!-- camera off -->
+  <event>9 3 5 2 1 3</event> <!-- camera on -->
+  <event>6 3 2 0 1 0</event> <!-- capture LG -->
+  <event>6 3 1 1 1 5</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>9 3 7 700 1 0</event> <!-- set exposure to 70 -->
+  <event>9 3 10 1080 1 0</event> <!-- set pre-scan rows to 1080,  -->
+  <event>9 3 5 0 1 2</event> <!-- camera off -->
+  <event>9 3 5 2 1 3</event> <!-- camera on -->
+  <event>6 3 2 0 1 0</event> <!-- capture LG -->
+  <event>6 3 1 1 1 5</event> <!-- start      -->
+  <event>6 3 1 0 1 10</event>  <!-- end        -->
+ 
+  <!-- Slow Cluster -->
+  <event>9 3 7 100 1 0</event> <!-- set exposure to 10 -->
+  <event>9 3 10 16 1 0</event> <!-- set pre-scan rows to 16,  -->
+  <event>9 3 5 0 1 2</event> <!-- camera off -->
+  <event>9 3 5 2 1 1</event> <!-- camera on -->
+  <event>6 3 2 0 1 0</event> <!-- capture LG -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>6 3 2 1 1 0</event> <!-- capture HG -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>6 3 2 2 1 0</event> <!-- capture BOTH -->
+  <event>6 3 1 1 1 20</event> <!-- start      -->
+  <event>6 3 1 0 1 2</event>  <!-- end   + sleep for  32 min -->
+ 
+  <!-- Shutdown -->
+  <event>9 3 5 0 1 10</event> <!-- turn off camera & sleep -->
+  
+  <documentation>
+  <!--  
+  
+  Logger:
+  logfile:        Full path of where to store file
+  loglevel:       0-5: 5=all information, 0=fatal errors only
+  logsize:        size of logfile in bytes
+  logmult:        singlefile or multifile logs
+  
+  <event>proc type arg1 arg2 count sleep </event>
+  -->
+  </documentation>
+  
+</configuration>

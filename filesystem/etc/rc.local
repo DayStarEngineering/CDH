@@ -18,11 +18,8 @@ echo -n "Starting up: " >>$startuplog
 # Set our IP address to 192.168.2.111:
 setXIP.sh
 
-# Start low level programs to make sure eps does not reset us:
-ssm /home/conf/ssm.xml > /dev/null &
-stay_awake.sh > /dev/null &
-
-# startall.sh &
+# Start only things that are vital to testing and such:
+startvital.sh &
 
 # Print Time:
 date +%s >>$startuplog
