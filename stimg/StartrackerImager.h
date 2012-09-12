@@ -70,7 +70,7 @@ private:
 	int sleepDuration;   // s
 	
 	// Configurable vars:
-	string file_path[2];
+	string file_path[3];
 	int file_path_index;
 	
 	// Thread synchronization vars:

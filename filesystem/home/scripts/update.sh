@@ -40,7 +40,7 @@ done
 cp /etc/rc0.d/K99daystar /etc/rc6.d/K99daystar
 
 # Start sat in default mode:
-# startall.sh &
+startvital.sh &
 
 # Remove this script:
 rm -f /home/scripts/update.sh

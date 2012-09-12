@@ -20,10 +20,15 @@ LOADAVE=$(cat /proc/loadavg | awk '{print $1" "$2" "$3}')
 DF=$(df | grep /dev/sda1 | awk '{print $3" "$4}')
 DFDATA=$(df | grep /dev/sda3 | awk '{print $3" "$4}')
 DFDATA1=$(df | grep /dev/sdb1 | awk '{print $3" "$4}')
+DFDATA2=$(df | grep /dev/sdc1 | awk '{print $3" "$4}')
 
 # Number of files:
-IMGFC=$(ls -l /data1/img | wc -l)
-IMGFC=$(($IMGFC-1))
+IMGFC0=$(ls -l /data/img | wc -l)
+IMGFC0=$(($IMGFC0-1))
+IMGFC1=$(ls -l /data1/img | wc -l)
+IMGFC1=$(($IMGFC1-1))
+IMGFC2=$(ls -l /data2/img | wc -l)
+IMGFC2=$(($IMGFC2-1))
 HEALTHFC=$(ls -l /data/health | wc -l)
 HEALTHFC=$(($HEALTHFC-1))
 DONEFC=$(ls -l /data/eps/done | wc -l)
@@ -83,7 +88,7 @@ SCHED2=${SCHED2:12:8}
 # Write Health and Status to File:
 ####################################
 
-echo $TIME $UTIME $CPU $MEM $LOADAVE $DF $DFDATA $DFDATA1 $IMGFC $HEALTHFC $DONEFC $PARTSFC $NUMZOMB $NUMPDOG $NUMSTIMG $NUMDCOL $NUMSCHED $NUMSSM $STIMG0 $STIMG1 $STIMG2 $STIMG3 $STIMG4 $STIMG5 $SCHED0 $SCHED1 $SCHED2
+echo $TIME $UTIME $CPU $MEM $LOADAVE $DF $DFDATA $DFDATA1 $DFDATA2 $IMGFC0 $IMGFC1 $IMGFC2 $HEALTHFC $DONEFC $PARTSFC $NUMZOMB $NUMPDOG $NUMSTIMG $NUMDCOL $NUMSCHED $NUMSSM $STIMG0 $STIMG1 $STIMG2 $STIMG3 $STIMG4 $STIMG5 $SCHED0 $SCHED1 $SCHED2
 
 ####################################
 # END

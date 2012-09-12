@@ -131,6 +131,11 @@ int stimg::configure()
 	file_path[1] += "/";
 	file_path[1] += myConfig["file_str"];
 	
+	file_path[2] = "";
+	file_path[2] += myConfig["file_dir2"];
+	file_path[2] += "/";
+	file_path[2] += myConfig["file_str"];
+	
 	// Configure scheduler:
 	captureDuration = atoi(myConfig["capture_duration"].c_str());
 	sleepDuration   = atoi(myConfig["sleep_duration"].c_str());
@@ -269,7 +274,7 @@ void* stimg::inData(void* arg)
 			//////////// GET SEMS  ///////////////////
 			ME->digMode = getSemaphore(ME->semid, 2);
 			ME->file_path_index = getSemaphore(ME->semid, 3);
-			if( ME->file_path_index < 0 || ME->file_path_index > 1 )
+			if( ME->file_path_index < 0 || ME->file_path_index > 2 )
 			{
 				ME->file_path_index = 0;
 				setSemaphore(ME->semid, 3, ME->file_path_index);
