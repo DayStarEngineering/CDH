@@ -45,10 +45,14 @@ private:
 	volatile bool* stop;
 	int semid;
 	int sched_semid;
+	bool play; // true = play, false = pause
 	int eventCounter;
 	int currEvent;
+	int timeSlept;
+	const char* playFname;
 	const char* eventCounterFname;
 	const char* currEventFname;
+	const char* timeSleptFname;
 	
 	// Functions:
 	int sched_sleep(int sleeptime);

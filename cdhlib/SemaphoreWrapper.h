@@ -23,7 +23,7 @@
 #define NUM_HSKPR       2
 #define NUM_PDOG        2
 #define NUM_DCOL        2
-#define NUM_SCHED       3
+#define NUM_SCHED       5
 #define NUM_KICK        8
 
 // Kick Defines (For PDOG)

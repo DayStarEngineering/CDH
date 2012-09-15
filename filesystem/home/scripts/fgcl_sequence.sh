@@ -29,4 +29,4 @@ while [ 1 ]; do
 
 done
 
-
+exit 1

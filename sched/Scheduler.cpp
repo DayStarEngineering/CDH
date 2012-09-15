@@ -105,8 +105,10 @@ int sched::configure()
 	}
 	
 	// Get location of globale variable files:
+	playFname = myConfig["play_fname"].c_str();
 	eventCounterFname = myConfig["event_counter_fname"].c_str();
 	currEventFname = myConfig["curr_event_fname"].c_str();
+	timeSleptFname = myConfig["time_slept_fname"].c_str();
 	
 	// Get semid:
 	if( (sched_semid = initSemaphores(SCHED_PATH,NUM_SCHED)) == -1 )
@@ -131,7 +133,21 @@ int sched::run()
 	myLogger.lw(INFO,"RUN: Starting SCHED Run...");
 	message msg;
 	
-	// Starting conditions:
+	// Starting conditions:	
+	int temp = getGV(playFname);
+	if( temp <= 0 )
+	{
+		play = false;
+		if( setGV(playFname, (int) play) == -1 )
+		{
+			myLogger.lw(ERROR,"RUN: Error setting current event counter to global var at %s",playFname);	
+		}
+	}
+	else
+	{
+		play = (bool) temp;
+	}
+	
 	currEvent = getGV(currEventFname);
 	if( (currEvent < 0) || (currEvent >= numEvents) )
 	{
@@ -151,18 +167,39 @@ int sched::run()
 			myLogger.lw(ERROR,"RUN: Error setting current event counter to global var at %s",eventCounterFname);	
 		}
 	}
-
-	myLogger.lw(INFO,"RUN: Restored current event as %d, count %d",currEvent,eventCounter);	
+	
+	timeSlept = getGV(timeSleptFname);
+	if( (timeSlept < 0) )
+	{
+		timeSlept = 0;
+		if( setGV(timeSleptFname, timeSlept) == -1 )
+		{
+			myLogger.lw(ERROR,"RUN: Error setting current event counter to global var at %s",timeSleptFname);	
+		}
+	}
+	
+	myLogger.lw(INFO,"RUN: Restored current event as %d, count %d, timeslept %d, play %d",currEvent,eventCounter,timeSlept,(int) play);	
 	
 	// Update semaphores:
-	setSemaphore(sched_semid,1,currEvent);
-	setSemaphore(sched_semid,2,eventCounter);
+	setSemaphore(sched_semid,1,(int) play);
+	setSemaphore(sched_semid,2,currEvent);
+	setSemaphore(sched_semid,3,eventCounter);
+	setSemaphore(sched_semid,4,timeSlept);
+	
+	// If we are not in play mode, then sleep until we are:
+	while( !(play = (bool) getSemaphore(sched_semid,1)) )
+	{
+		// Sleep:
+		myLogger.lw(INFO,"RUN: Waiting to start the scheduler until play == 1. Right now play = %d.",play);
+ 		usleep(1000000);
+	}	
+ 	setGV(playFname, (int) play);
 	
 	for(; currEvent < numEvents; currEvent++)
 	{	
 		// Update semaphore & file:
 		setGV(currEventFname, currEvent);
-		setSemaphore(sched_semid,1,currEvent);
+		setSemaphore(sched_semid,2,currEvent);
 		
 		// Form message
 		msg.cmd = event[currEvent].cmd;
@@ -173,14 +210,24 @@ int sched::run()
 		{
 			// Update semaphore & file:
 			setGV(eventCounterFname, eventCounter);
-			setSemaphore(sched_semid,2,eventCounter);
+			setSemaphore(sched_semid,3,eventCounter);
+			
 			myLogger.lw(INFO,"RUN: Running event %d. Count %d of %d.",event[currEvent].num,eventCounter + 1,event[currEvent].count);
 			
-			// Run command:
-			commandWrapper.execute(&msg);
-			if(msg.rsp.ret != 1)
+			// Run command up to 5 times if failures occure:
+			for( int numTrys = 0; numTrys < 5; numTrys++ )
 			{
-				myLogger.lw(ERROR,"RUN: Event %d returned with error %x",event[currEvent].num, msg.rsp.ret);
+				commandWrapper.execute(&msg);
+				if(msg.rsp.ret != 1)
+				{
+					myLogger.lw(ERROR,"RUN: Event %d returned with error %x on try %d. Sleeping 1 second and trying again.",event[currEvent].num, numTrys, msg.rsp.ret);
+					usleep(1000000);
+				}
+				else
+				{
+					myLogger.lw(ERROR,"RUN: Event %d successful on try %d.",event[currEvent].num, numTrys);
+					break; // command success, go to sleepy time.
+				}
 			}
 			
 			if(sched_sleep(event[currEvent].sleep) == -1)
@@ -204,19 +251,29 @@ int sched::sched_sleep(int sleeptime)
 	// Timers:
 	timeval currTime;
 	timeval sleepStartTime;
+	int prevTimeSlept = 0;
+	int currTimeSlept = 0;
+	
+	// Figure out how long to sleep:
+	int time2sleep = sleeptime;	
+	if( sleeptime != -1 )
+	{
+		time2sleep = sleeptime - timeSlept;
+	}
+	prevTimeSlept = timeSlept;
+	
+	myLogger.lw(SPAM,"SLEEP: Taking a nap for sleeptime: %d  - timeslept: %d = %d seconds. Play = %d.", sleeptime, timeSlept, time2sleep, (int) play );
+	
+	// Get time:
 	gettimeofday(&currTime, NULL);
 	sleepStartTime = currTime;
-	//int temp;
-	
-	myLogger.lw(SPAM,"SLEEP: Taking a nap for %d seconds", sleeptime );
-	
 	do
 	{
 		// Checking for signal:
 		if(*stop)
 			return -1;
 		
-		//myLogger.lw(SPAM,"SLEEP: Sleeping for %d more seconds.", sleeptime - (currTime.tv_sec - sleepStartTime.tv_sec) );
+		myLogger.lw(SPAM,"SLEEP: Play = %d, Sleeping for %d more seconds.", (int) play, time2sleep - timeSlept );
 		
 		// Kick pdog:
 		//myLogger.lw(SPAM,"SLEEP: Kicking pdog.");
@@ -228,23 +285,34 @@ int sched::sched_sleep(int sleeptime)
 	            myLogger.lw(ERROR,"SLEEP: Unable to grab semaphores (%s)", KICK_PATH);
 	        }
 		}
-		
-		// See if we got a command:
-		/*
-		temp = getSemaphore(sched_semid, 1);
-		if( (temp >= 0) && (temp < numEvents) )
-			currEvent = temp;
-		temp = getSemaphore(sched_semid, 2);
-		if( (eventCounter >= 0) )
-			eventCounter = temp;
-		*/
-		
+
 		// Sleep:
  		usleep(1000000);
  		
- 		// Get the current time:
-		gettimeofday(&currTime, NULL);
-	} while( ((currTime.tv_sec - sleepStartTime.tv_sec) < sleeptime) || (sleeptime == -1)  );
+ 		// See if we are in pause or play mode:
+ 		play = (bool) getSemaphore(sched_semid,1);
+ 		setGV(playFname, (int) play);
+		
+		// Calculate amount of time slept so far if we are not paused:
+		if( play )
+		{
+			// Get the current time:
+			gettimeofday(&currTime, NULL);
+			currTimeSlept = (currTime.tv_sec - sleepStartTime.tv_sec);
+			timeSlept = prevTimeSlept + currTimeSlept;
+			setGV(timeSleptFname, timeSlept);
+			setSemaphore(sched_semid,4,timeSlept);
+		}
+		else
+		{
+			// Store previous time:
+			prevTimeSlept = timeSlept;
+			
+			// Reset the sleep start time until we are in play mode again:
+			gettimeofday(&sleepStartTime, NULL);
+		}
+		
+	} while( (timeSlept < time2sleep) || (time2sleep == -1) || !play );
 	
 	return 0;
 }

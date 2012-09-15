@@ -8,3 +8,5 @@ while [ 1 ]; do
 	# Take a nap:
 	sleep 10
 done
+
+exit 1

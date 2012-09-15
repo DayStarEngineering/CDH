@@ -138,7 +138,7 @@ void SubsystemInterface::command(message* msg)
 	t2 = t1;
 		
 	// Wait For Response:
-	while((t2-t1) < (0.5 
+	while((t2-t1) < (1.5 
 	#if DEBUG_PORT == 1
 	+ 20
 	#endif

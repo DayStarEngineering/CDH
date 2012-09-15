@@ -10,3 +10,5 @@ touch /tmp/cmd.sem
 touch /tmp/stimg.sem
 touch /tmp/sched.sem
 touch /tmp/kick.sem
+
+exit 1

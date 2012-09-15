@@ -13,3 +13,4 @@ resetSched.sh
 # Make rc.local flight ready:
 rctest.sh
 
+exit 1

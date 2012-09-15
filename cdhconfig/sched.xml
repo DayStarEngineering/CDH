@@ -7,8 +7,10 @@
   <logmult>SINGLEFILE</logmult>
   
   <!-- Global Persistant Var Locations -->
+  <play_fname>/home/gv/play.gv</play_fname>
   <event_counter_fname>/home/gv/eventcnt.gv</event_counter_fname>
   <curr_event_fname>/home/gv/currevent.gv</curr_event_fname>
+  <time_slept_fname>/home/gv/timeslept.gv</time_slept_fname>
   
   <!-- Data Collector Thread Data: -->
   <!-- set up: -->

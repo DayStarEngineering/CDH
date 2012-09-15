@@ -374,6 +374,9 @@ int dcol::run()
 			myLogger.lw(ERROR,"RUN %d: Bad return code from pthread_create() - value is %d\n", i, rc);
 			exit(-1);
 		}
+		
+		// Sleep 1 second to stagger the threads:
+		usleep(1000000); // dirty fix, may want to change this if more than 5 or 10 threads are going to be spawned to quicken startup.
 	}
 	
 	// Setup and start all paramWorker threads:
@@ -516,7 +519,7 @@ void* dcol::dataWorker(void* arg)
 		logger->lw(INFO,"DATAWORKER %d: Still needs to collect %d data points. Requesting %d.",tskNum,dpremain,numdp);
 		
 		// Request data from subsystem:
-		logger->lw(INFO,"DATAWORKER %d: sending: %s",tskNum,msg->toString());		
+		// logger->lw(INFO,"DATAWORKER %d: sending: %s",tskNum,msg->toString());		
 		commandWrapper.execute(msg);
 		if(msg->rsp.ret != 1)
 		{
