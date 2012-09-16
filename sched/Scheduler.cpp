@@ -186,9 +186,23 @@ int sched::run()
 	setSemaphore(sched_semid,3,eventCounter);
 	setSemaphore(sched_semid,4,timeSlept);
 	
-	// If we are not in play mode, then sleep until we are:
+	// If we are not in play mode, then sleep until we are: (kinda kloogy, consider making a function?)
 	while( !(play = (bool) getSemaphore(sched_semid,1)) )
 	{
+		// Checking for signal:
+		if(*stop)
+			return 0;
+			
+		// Kick pdog:
+		if ((setSemaphore(semid,SCHED_KICK_SEM,1)) == -1)
+		{
+			myLogger.lw(ERROR,"SLEEP: Unable to set semaphore!");
+			if ((semid = getSemaphoreID(KICK_PATH,NUM_KICK)) == -1)
+	        {
+	            myLogger.lw(ERROR,"SLEEP: Unable to grab semaphores (%s)", KICK_PATH);
+	        }
+		}
+		
 		// Sleep:
 		myLogger.lw(INFO,"RUN: Waiting to start the scheduler until play == 1. Right now play = %d.",play);
  		usleep(1000000);
@@ -225,7 +239,7 @@ int sched::run()
 				}
 				else
 				{
-					myLogger.lw(ERROR,"RUN: Event %d successful on try %d.",event[currEvent].num, numTrys);
+					myLogger.lw(INFO,"RUN: Event %d successful on try %d.",event[currEvent].num, numTrys);
 					break; // command success, go to sleepy time.
 				}
 			}

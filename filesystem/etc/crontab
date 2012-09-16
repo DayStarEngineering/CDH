@@ -15,8 +15,17 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 #
 
 # DAYSTAR crons:
-# Start sched at a desired time:
-52 6 * * *   root    /home/scripts/playSched.sh
+# Start sched at a desired time (try 10 times to make sure):
+05 21 * * *   root    /home/scripts/playSched.sh
+10 21 * * *   root    /home/scripts/playSched.sh
+15 21 * * *   root    /home/scripts/playSched.sh
+20 21 * * *   root    /home/scripts/playSched.sh
+25 21 * * *   root    /home/scripts/playSched.sh
+30 21 * * *   root    /home/scripts/playSched.sh
+35 21 * * *   root    /home/scripts/playSched.sh
+40 21 * * *   root    /home/scripts/playSched.sh
+45 21 * * *   root    /home/scripts/playSched.sh
+50 21 * * *   root    /home/scripts/playSched.sh
 
 ###########################################################################
 # DESCRIPTION: ############################################################
