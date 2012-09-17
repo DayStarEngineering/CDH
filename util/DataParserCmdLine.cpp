@@ -156,7 +156,7 @@ void parseDCOL(string inFname, int bpv, int vvlen)
 			}
 			cnt++;
 			
-			if( cnt >= SEPLEN + 8 + vvlen*bpv )
+			if( cnt >= SEPLEN + sizeof(long)*2 + vvlen*bpv )
 			{
 				cout << setw( 10 ) << setfill( '0' ) << dec << *((unsigned int*) sec) << " ";
 				cout << setw( 6 ) << setfill( '0' ) << dec << *((unsigned int*) usec) << " ";

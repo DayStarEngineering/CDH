@@ -151,12 +151,13 @@ int sched::run()
 	currEvent = getGV(currEventFname);
 	if( (currEvent < 0) || (currEvent >= numEvents) )
 	{
-		currEvent = 0;
+		currEvent = -1;
 		if( setGV(currEventFname, currEvent) == -1 )
 		{
 			myLogger.lw(ERROR,"RUN: Error setting current event to global var at %s",currEventFname);	
 		}
 	}
+	else
 	
 	eventCounter = getGV(eventCounterFname);
 	if( (eventCounter < 0) )
@@ -185,29 +186,20 @@ int sched::run()
 	setSemaphore(sched_semid,2,currEvent);
 	setSemaphore(sched_semid,3,eventCounter);
 	setSemaphore(sched_semid,4,timeSlept);
-	
-	// If we are not in play mode, then sleep until we are: (kinda kloogy, consider making a function?)
-	while( !(play = (bool) getSemaphore(sched_semid,1)) )
+ 	
+ 	int presleep = 0;
+ 	if( currEvent > 0 )
+ 	{
+ 		presleep = event[currEvent].sleep;
+ 	}
+ 	
+ 	// Sleep initially and wait for play, or advance when the next event is scheduled.
+	if(sched_sleep(presleep) == -1)
 	{
-		// Checking for signal:
-		if(*stop)
-			return 0;
-			
-		// Kick pdog:
-		if ((setSemaphore(semid,SCHED_KICK_SEM,1)) == -1)
-		{
-			myLogger.lw(ERROR,"SLEEP: Unable to set semaphore!");
-			if ((semid = getSemaphoreID(KICK_PATH,NUM_KICK)) == -1)
-	        {
-	            myLogger.lw(ERROR,"SLEEP: Unable to grab semaphores (%s)", KICK_PATH);
-	        }
-		}
-		
-		// Sleep:
-		myLogger.lw(INFO,"RUN: Waiting to start the scheduler until play == 1. Right now play = %d.",play);
- 		usleep(1000000);
-	}	
- 	setGV(playFname, (int) play);
+		myLogger.lw(INFO,"RUN: Schedule terminated. Dying gracefully.");
+		return 0;
+	}
+ 	currEvent++;
 	
 	for(; currEvent < numEvents; currEvent++)
 	{	
@@ -269,14 +261,14 @@ int sched::sched_sleep(int sleeptime)
 	int currTimeSlept = 0;
 	
 	// Figure out how long to sleep:
-	int time2sleep = sleeptime;	
-	if( sleeptime != -1 )
+	//int time2sleep = sleeptime;	
+	/*if( sleeptime != -1 )
 	{
 		time2sleep = sleeptime - timeSlept;
-	}
+	}*/
 	prevTimeSlept = timeSlept;
 	
-	myLogger.lw(SPAM,"SLEEP: Taking a nap for sleeptime: %d  - timeslept: %d = %d seconds. Play = %d.", sleeptime, timeSlept, time2sleep, (int) play );
+	myLogger.lw(SPAM,"SLEEP: Taking a nap for sleeptime: %d  - timeslept: %d = %d seconds. Play = %d.", sleeptime, timeSlept, sleeptime - timeSlept, (int) play );
 	
 	// Get time:
 	gettimeofday(&currTime, NULL);
@@ -287,7 +279,7 @@ int sched::sched_sleep(int sleeptime)
 		if(*stop)
 			return -1;
 		
-		myLogger.lw(SPAM,"SLEEP: Play = %d, Sleeping for %d more seconds.", (int) play, time2sleep - timeSlept );
+		myLogger.lw(SPAM,"SLEEP: Play = %d, Sleeping for %d more seconds.", (int) play, sleeptime - timeSlept );
 		
 		// Kick pdog:
 		//myLogger.lw(SPAM,"SLEEP: Kicking pdog.");
@@ -326,7 +318,11 @@ int sched::sched_sleep(int sleeptime)
 			gettimeofday(&sleepStartTime, NULL);
 		}
 		
-	} while( (timeSlept < time2sleep) || (time2sleep == -1) || !play );
+	} while( (timeSlept < sleeptime) || (sleeptime == -1) || !play );
+	
+	// Reset time slept to zero:
+	timeSlept = 0;
+	setGV(timeSleptFname, timeSlept);
 	
 	return 0;
 }

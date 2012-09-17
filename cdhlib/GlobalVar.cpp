@@ -11,7 +11,8 @@ int setGV(const char* fname, int value)
   	fclose (pFile);
   	return -1;
   }
-
+  
+  fflush(pFile);
   fclose (pFile);
   return 0;
 }
