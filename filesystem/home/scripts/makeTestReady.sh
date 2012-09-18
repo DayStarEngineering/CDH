@@ -10,7 +10,10 @@ cleanlog.sh
 # Clear any sched status:
 resetSched.sh
 
-# Make rc.local flight ready:
+# Make rc.local test ready:
 rctest.sh
+
+# Make crontab test ready:
+crontest.sh
 
 exit 1

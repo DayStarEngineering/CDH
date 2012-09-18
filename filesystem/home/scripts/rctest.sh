@@ -1,5 +1,5 @@
 #!/bin/bash
 
-cp /etc/rc.local.test /etc/rc.local
+cp -f /etc/rc.local.test /etc/rc.local
 
 exit 1

@@ -13,5 +13,8 @@ resetSched.sh
 # Make rc.local flight ready:
 rcflight.sh
 
+# Make crontab flight ready:
+cronflight.sh
+
 exit 1
 
