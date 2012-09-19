@@ -73,8 +73,8 @@ STIMG3=$(stcl stimg get 3)
 STIMG3=${STIMG3:12:8}
 STIMG4=$(stcl stimg get 4)
 STIMG4=${STIMG4:12:8}
-STIMG5=$(stcl stimg get 4)
-STIMG5=${STIMG4:12:8}
+STIMG5=$(stcl stimg get 5)
+STIMG5=${STIMG5:12:8}
 
 # SCHED:
 SCHED0=$(stcl sched get 0)

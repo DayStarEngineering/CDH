@@ -1,0 +1,106 @@
+<configuration>
+  
+  <!-- Logger: -->
+  <logfile>/home/log/sched.log</logfile>
+  <loglevel>5</loglevel>
+  <logsize>2000000</logsize>
+  <logmult>SINGLEFILE</logmult>
+  
+  <!-- Global Persistant Var Locations -->
+  <play_fname>/home/gv/play.gv</play_fname>
+  <event_counter_fname>/home/gv/eventcnt.gv</event_counter_fname>
+  <curr_event_fname>/home/gv/currevent.gv</curr_event_fname>
+  <time_slept_fname>/home/gv/timeslept.gv</time_slept_fname>
+  
+  <!-- Scheduler Config Assumptions:
+  
+  #######################################
+  Nighttime burst
+  50 sec bursts at 30,50,70ms with HG, LG, Both
+  new implementation of camera power cycle between 50s bursts
+  ########################################
+  
+  -->
+  
+  
+  <!-- Start up: -->
+  <event>9 3 5 0 1 1</event> <!-- turn off camera -->
+  <event>9 3 5 2 1 5</event> <!-- turn on camera & sleep -->
+  
+  <!-- Set HD to data1 -->
+  <event>6 3 3 0 1 1</event>  <!-- set the HD to store images to -->
+  
+  <!-- Store 1 nighttime cluster on data1 HD -->
+  <!-- Slow Cluster 1 -->
+  <event>9 3 18 0 1 1</event> <!-- open sunshade -->
+  <event>9 3 7 300 1 0</event> <!-- set exposure to 30 -->
+  <event>9 3 10 16 1 0</event> <!-- set pre-scan rows to 16,  -->
+  <event>9 3 5 0 1 2</event> <!-- camera off -->
+  <event>9 3 5 2 1 3</event> <!-- camera on -->
+  <event>6 3 2 0 1 0</event> <!-- capture LG -->
+  <event>6 3 1 1 1 50</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>9 3 5 0 1 2</event> <!-- camera off -->
+  <event>9 3 5 2 1 3</event> <!-- camera on -->
+  <event>6 3 2 1 1 0</event> <!-- capture HG -->
+  <event>6 3 1 1 1 50</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>9 3 5 0 1 2</event> <!-- camera off -->
+  <event>9 3 5 2 1 3</event> <!-- camera on -->
+  <event>6 3 2 2 1 0</event> <!-- capture BOTH -->
+  <event>6 3 1 1 1 50</event> <!-- start      -->
+  <event>6 3 1 0 1 1</event>  <!-- end   + sleep for  1 s -->
+  <!-- Slow Cluster -->
+  <event>9 3 7 500 1 0</event> <!-- set exposure to 50 -->
+  <event>9 3 10 1080 1 0</event> <!-- set pre-scan rows to 1080,  -->
+  <event>9 3 5 0 1 2</event> <!-- camera off -->
+  <event>9 3 5 2 1 3</event> <!-- camera on -->
+  <event>6 3 2 0 1 0</event> <!-- capture LG -->
+  <event>6 3 1 1 1 50</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>9 3 5 0 1 2</event> <!-- camera off -->
+  <event>9 3 5 2 1 3</event> <!-- camera on -->
+  <event>6 3 2 1 1 0</event> <!-- capture HG -->
+  <event>6 3 1 1 1 50</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>9 3 5 0 1 2</event> <!-- camera off -->
+  <event>9 3 5 2 1 3</event> <!-- camera on -->
+  <event>6 3 2 2 1 0</event> <!-- capture BOTH -->
+  <event>6 3 1 1 1 50</event> <!-- start      -->
+  <event>6 3 1 0 1 1</event>  <!-- end   + sleep for  1 s -->
+  <!-- Slow Cluster -->
+  <event>9 3 7 700 1 0</event> <!-- set exposure to 70 -->
+  <event>9 3 10 1080 1 0</event> <!-- set pre-scan rows to 1080,  -->
+  <event>9 3 5 0 1 2</event> <!-- camera off -->
+  <event>9 3 5 2 1 3</event> <!-- camera on -->
+  <event>6 3 2 0 1 0</event> <!-- capture LG -->
+  <event>6 3 1 1 1 50</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>9 3 5 0 1 2</event> <!-- camera off -->
+  <event>9 3 5 2 1 3</event> <!-- camera on -->
+  <event>6 3 2 1 1 0</event> <!-- capture HG -->
+  <event>6 3 1 1 1 50</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>9 3 5 0 1 2</event> <!-- camera off -->
+  <event>9 3 5 2 1 3</event> <!-- camera on -->
+  <event>6 3 2 2 1 0</event> <!-- capture BOTH -->
+  <event>6 3 1 1 1 50</event> <!-- start      -->
+  <event>6 3 1 0 1 1</event>  <!-- end   + sleep for  1 s -->
+  
+  <!-- Shutdown -->
+  <event>9 3 5 0 1 0</event> <!-- turn off camera & sleep -->
+  
+  <documentation>
+  <!--  
+  
+  Logger:
+  logfile:        Full path of where to store file
+  loglevel:       0-5: 5=all information, 0=fatal errors only
+  logsize:        size of logfile in bytes
+  logmult:        singlefile or multifile logs
+  
+  <event>proc type arg1 arg2 count sleep </event>
+  -->
+  </documentation>
+  
+</configuration>

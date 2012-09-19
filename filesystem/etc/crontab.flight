@@ -16,24 +16,6 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
 # DAYSTAR crons:
 # Start sched at a desired time (try 10 times every hour to make damn sure it stays running):
-10 15 * * *   root    /home/scripts/playSched.sh
-15 15 * * *   root    /home/scripts/playSched.sh
-20 15 * * *   root    /home/scripts/playSched.sh
-25 15 * * *   root    /home/scripts/playSched.sh
-30 15 * * *   root    /home/scripts/playSched.sh
-35 15 * * *   root    /home/scripts/playSched.sh
-40 15 * * *   root    /home/scripts/playSched.sh
-45 15 * * *   root    /home/scripts/playSched.sh
-50 15 * * *   root    /home/scripts/playSched.sh
-55 15 * * *   root    /home/scripts/playSched.sh
-
-00 16 * * *   root    /home/scripts/playSched.sh
-05 16 * * *   root    /home/scripts/playSched.sh
-10 16 * * *   root    /home/scripts/playSched.sh
-15 16 * * *   root    /home/scripts/playSched.sh
-20 16 * * *   root    /home/scripts/playSched.sh
-25 16 * * *   root    /home/scripts/playSched.sh
-30 16 * * *   root    /home/scripts/playSched.sh
 35 16 * * *   root    /home/scripts/playSched.sh
 40 16 * * *   root    /home/scripts/playSched.sh
 45 16 * * *   root    /home/scripts/playSched.sh
@@ -117,6 +99,19 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 45 22 * * *   root    /home/scripts/playSched.sh
 50 22 * * *   root    /home/scripts/playSched.sh
 55 22 * * *   root    /home/scripts/playSched.sh
+
+00 23 * * *   root    /home/scripts/playSched.sh
+05 23 * * *   root    /home/scripts/playSched.sh
+10 23 * * *   root    /home/scripts/playSched.sh
+15 23 * * *   root    /home/scripts/playSched.sh
+20 23 * * *   root    /home/scripts/playSched.sh
+25 23 * * *   root    /home/scripts/playSched.sh
+30 23 * * *   root    /home/scripts/playSched.sh
+35 23 * * *   root    /home/scripts/playSched.sh
+40 23 * * *   root    /home/scripts/playSched.sh
+45 23 * * *   root    /home/scripts/playSched.sh
+50 23 * * *   root    /home/scripts/playSched.sh
+55 23 * * *   root    /home/scripts/playSched.sh
 
 ###########################################################################
 # DESCRIPTION: ############################################################

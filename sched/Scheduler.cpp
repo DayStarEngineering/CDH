@@ -226,7 +226,7 @@ int sched::run()
 				commandWrapper.execute(&msg);
 				if(msg.rsp.ret != 1)
 				{
-					myLogger.lw(ERROR,"RUN: Event %d returned with error %x on try %d. Sleeping 1 second and trying again.",event[currEvent].num, numTrys, msg.rsp.ret);
+					myLogger.lw(ERROR,"RUN: Event %d returned with error 0x%x on try %d. Sleeping 1 second and trying again.",event[currEvent].num, msg.rsp.ret, numTrys);
 					usleep(1000000);
 				}
 				else
