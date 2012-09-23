@@ -33,22 +33,21 @@
   =========  Sunset = 19:30 =============
   From NASA meteorologist, 14knots W travel
   
-  EOAT = End fast clusters = 20:15 
+  EOAT = End fast clusters = 20:25 
   ________________________________________
   
-  We have 1 hour 10 minutes of fast clusters.
-  Run 1 cluster every 10 minutes for a total of 7 clusters.
-  6 clusters on on DATA1, 1 clusters on DATA
+  We have 1 hour 20 minutes of fast clusters.
+  Run 1 cluster every 10 minutes for a total of 8 clusters.
+  6 clusters on on DATA1, 2 clusters on DATA
   ________________________________________
   
   ########################################
   ________________________________________
   
-  6 nighttime bursts, 1 every 10 minutes, for 60 min
+  5 nighttime bursts, 1 every 10 minutes, for 50 min
   4 on DATA2
-  1/3 of burst 5 on DATA2
-  2/3 of burst 5 on DATA
-  1 burst 6 on DATA1
+  2/3 of burst 5 on DATA2
+  1/3 of burst 5 on DATA
   ________________________________________
   
   Shutdown = end nighttime = 21:15
@@ -369,7 +368,7 @@
   
   <!-- SUNSET TIME BABY!!!! -->
 
-  <!-- Start 7 Fast Clusters -->
+  <!-- Start 8 Fast Clusters -->
   <!-- Twilight Cluster 1 -->
   <event>6 3 3 0 1 1</event>  <!-- set the HD to store images to data1-->
   <event>9 3 18 0 1 1</event> <!-- open sunshade -->
@@ -1006,8 +1005,99 @@
   <event>6 3 1 1 1 5</event> <!-- start      -->
   <event>6 3 1 0 1 540</event>  <!-- end & sleep for 9 minutes -->
   
-   
-   
+    <!-- Twilight Cluster 8 -->
+	<!-- Change HD to data -->
+  <event>6 3 3 2 1 1</event>  <!-- set the HD to store images to data-->
+  <event>9 3 18 0 1 1</event> <!-- open sunshade -->
+  <event>9 3 7 200 1 0</event> <!-- set exposure to 20 -->
+  <event>9 3 10 16 1 0</event> <!-- set pre-scan rows to 16,  -->
+  <event>9 3 5 0 1 2</event> <!-- camera off -->
+  <event>9 3 5 2 1 3</event> <!-- camera on -->
+  <event>6 3 2 0 1 0</event> <!-- capture LG -->
+  <event>6 3 1 1 1 5</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>9 3 7 300 1 0</event> <!-- set exposure to 30 -->
+  <event>9 3 10 16 1 0</event> <!-- set pre-scan rows to 16,  -->
+  <event>9 3 5 0 1 2</event> <!-- camera off -->
+  <event>9 3 5 2 1 3</event> <!-- camera on -->
+  <event>6 3 2 0 1 0</event> <!-- capture LG -->
+  <event>6 3 1 1 1 5</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>9 3 7 400 1 0</event> <!-- set exposure to 40 -->
+  <event>9 3 10 1080 1 0</event> <!-- set pre-scan rows to 1080,  -->
+  <event>9 3 5 0 1 2</event> <!-- camera off -->
+  <event>9 3 5 2 1 3</event> <!-- camera on -->
+  <event>6 3 2 0 1 0</event> <!-- capture LG -->
+  <event>6 3 1 1 1 5</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>9 3 7 500 1 0</event> <!-- set exposure to 50 -->
+  <event>9 3 10 1080 1 0</event> <!-- set pre-scan rows to 1080,  -->
+  <event>9 3 5 0 1 2</event> <!-- camera off -->
+  <event>9 3 5 2 1 3</event> <!-- camera on -->
+  <event>6 3 2 0 1 0</event> <!-- capture LG -->
+  <event>6 3 1 1 1 5</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  
+  <event>9 3 7 200 1 0</event> <!-- set exposure to 20 -->
+  <event>9 3 10 16 1 0</event> <!-- set pre-scan rows to 16,  -->
+  <event>9 3 5 0 1 2</event> <!-- camera off -->
+  <event>9 3 5 2 1 3</event> <!-- camera on -->
+  <event>6 3 2 1 1 0</event> <!-- capture HG -->
+  <event>6 3 1 1 1 5</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>9 3 7 300 1 0</event> <!-- set exposure to 30 -->
+  <event>9 3 10 16 1 0</event> <!-- set pre-scan rows to 16,  -->
+  <event>9 3 5 0 1 2</event> <!-- camera off -->
+  <event>9 3 5 2 1 3</event> <!-- camera on -->
+  <event>6 3 2 1 1 0</event> <!-- capture HG -->
+  <event>6 3 1 1 1 5</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>9 3 7 400 1 0</event> <!-- set exposure to 40 -->
+  <event>9 3 10 1080 1 0</event> <!-- set pre-scan rows to 1080,  -->
+  <event>9 3 5 0 1 2</event> <!-- camera off -->
+  <event>9 3 5 2 1 3</event> <!-- camera on -->
+  <event>6 3 2 1 1 0</event> <!-- capture HG -->
+  <event>6 3 1 1 1 5</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>9 3 7 500 1 0</event> <!-- set exposure to 50 -->
+  <event>9 3 10 1080 1 0</event> <!-- set pre-scan rows to 1080,  -->
+  <event>9 3 5 0 1 2</event> <!-- camera off -->
+  <event>9 3 5 2 1 3</event> <!-- camera on -->
+  <event>6 3 2 1 1 0</event> <!-- capture HG -->
+  <event>6 3 1 1 1 5</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  
+  <event>9 3 7 200 1 0</event> <!-- set exposure to 20 -->
+  <event>9 3 10 16 1 0</event> <!-- set pre-scan rows to 16,  -->
+  <event>9 3 5 0 1 2</event> <!-- camera off -->
+  <event>9 3 5 2 1 3</event> <!-- camera on -->
+  <event>6 3 2 2 1 0</event> <!-- capture BOTH -->
+  <event>6 3 1 1 1 5</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>9 3 7 300 1 0</event> <!-- set exposure to 30 -->
+  <event>9 3 10 16 1 0</event> <!-- set pre-scan rows to 16,  -->
+  <event>9 3 5 0 1 2</event> <!-- camera off -->
+  <event>9 3 5 2 1 3</event> <!-- camera on -->
+  <event>6 3 2 2 1 0</event> <!-- capture BOTH -->
+  <event>6 3 1 1 1 5</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>9 3 7 400 1 0</event> <!-- set exposure to 40 -->
+  <event>9 3 10 1080 1 0</event> <!-- set pre-scan rows to 1080,  -->
+  <event>9 3 5 0 1 2</event> <!-- camera off -->
+  <event>9 3 5 2 1 3</event> <!-- camera on -->
+  <event>6 3 2 2 1 0</event> <!-- capture BOTH -->
+  <event>6 3 1 1 1 5</event> <!-- start      -->
+  <event>6 3 1 0 1 0</event>  <!-- end        -->
+  <event>9 3 7 500 1 0</event> <!-- set exposure to 50 -->
+  <event>9 3 10 1080 1 0</event> <!-- set pre-scan rows to 1080,  -->
+  <event>9 3 5 0 1 2</event> <!-- camera off -->
+  <event>9 3 5 2 1 3</event> <!-- camera on -->
+  <event>6 3 2 2 1 0</event> <!-- capture BOTH -->
+  <event>6 3 1 1 1 5</event> <!-- start      -->
+  <event>6 3 1 0 1 540</event>  <!-- end & sleep for 9 minutes -->
+  
+  
+  
   <!-- ITS NIGHT TIZZIME G-THANG!!!! -->
   <!-- 5 Nighttime Slow Clusters-->
   
@@ -1266,9 +1356,6 @@
   <event>6 3 1 1 1 50</event> <!-- start      -->
   <event>6 3 1 0 1 1</event>  <!-- end   + sleep for  1 s -->
   
-  <!-- Change HD to data -->
-  <event>6 3 3 2 1 1</event>  <!-- set the HD to store images to data-->
-  
   <event>9 3 7 500 1 0</event> <!-- set exposure to 50 -->
   <event>9 3 10 1080 1 0</event> <!-- set pre-scan rows to 1080,  -->
   <event>9 3 5 0 1 2</event> <!-- camera off -->
@@ -1287,64 +1374,8 @@
   <event>6 3 1 1 1 50</event> <!-- start      -->
   <event>6 3 1 0 1 1</event>  <!-- end   + sleep for 1 sec -->
   
-  <event>9 3 7 700 1 0</event> <!-- set exposure to 70 -->
-  <event>9 3 10 1080 1 0</event> <!-- set pre-scan rows to 1080,  -->
-  <event>9 3 5 0 1 2</event> <!-- camera off -->
-  <event>9 3 5 2 1 3</event> <!-- camera on -->
-  <event>6 3 2 0 1 0</event> <!-- capture LG -->
-  <event>6 3 1 1 1 50</event> <!-- start      -->
-  <event>6 3 1 0 1 0</event>  <!-- end        -->
-  <event>9 3 5 0 1 2</event> <!-- camera off -->
-  <event>9 3 5 2 1 3</event> <!-- camera on -->
-  <event>6 3 2 1 1 0</event> <!-- capture HG -->
-  <event>6 3 1 1 1 50</event> <!-- start      -->
-  <event>6 3 1 0 1 0</event>  <!-- end        -->
-  <event>9 3 5 0 1 2</event> <!-- camera off -->
-  <event>9 3 5 2 1 3</event> <!-- camera on -->
-  <event>6 3 2 2 1 0</event> <!-- capture BOTH -->
-  <event>6 3 1 1 1 50</event> <!-- start      -->
-  <event>6 3 1 0 1 180</event>  <!-- end   + sleep for 3 min -->
-  
-  
-    <!-- Nighttime Cluster 6 -->
-  <!-- Change HD to data1 -->
-  <event>6 3 3 0 1 1</event>  <!-- set the HD to store images to data1-->
-  <event>9 3 18 0 1 1</event> <!-- open sunshade -->
-  <event>9 3 7 300 1 0</event> <!-- set exposure to 30 -->
-  <event>9 3 10 16 1 0</event> <!-- set pre-scan rows to 16,  -->
-  <event>9 3 5 0 1 2</event> <!-- camera off -->
-  <event>9 3 5 2 1 3</event> <!-- camera on -->
-  <event>6 3 2 0 1 0</event> <!-- capture LG -->
-  <event>6 3 1 1 1 50</event> <!-- start      -->
-  <event>6 3 1 0 1 0</event>  <!-- end        -->
-  <event>9 3 5 0 1 2</event> <!-- camera off -->
-  <event>9 3 5 2 1 3</event> <!-- camera on -->
-  <event>6 3 2 1 1 0</event> <!-- capture HG -->
-  <event>6 3 1 1 1 50</event> <!-- start      -->
-  <event>6 3 1 0 1 0</event>  <!-- end        -->
-  <event>9 3 5 0 1 2</event> <!-- camera off -->
-  <event>9 3 5 2 1 3</event> <!-- camera on -->
-  <event>6 3 2 2 1 0</event> <!-- capture BOTH -->
-  <event>6 3 1 1 1 50</event> <!-- start      -->
-  <event>6 3 1 0 1 1</event>  <!-- end   + sleep for  1 s -->
-  
-  <event>9 3 7 500 1 0</event> <!-- set exposure to 50 -->
-  <event>9 3 10 1080 1 0</event> <!-- set pre-scan rows to 1080,  -->
-  <event>9 3 5 0 1 2</event> <!-- camera off -->
-  <event>9 3 5 2 1 3</event> <!-- camera on -->
-  <event>6 3 2 0 1 0</event> <!-- capture LG -->
-  <event>6 3 1 1 1 50</event> <!-- start      -->
-  <event>6 3 1 0 1 0</event>  <!-- end        -->
-  <event>9 3 5 0 1 2</event> <!-- camera off -->
-  <event>9 3 5 2 1 3</event> <!-- camera on -->
-  <event>6 3 2 1 1 0</event> <!-- capture HG -->
-  <event>6 3 1 1 1 50</event> <!-- start      -->
-  <event>6 3 1 0 1 0</event>  <!-- end        -->
-  <event>9 3 5 0 1 2</event> <!-- camera off -->
-  <event>9 3 5 2 1 3</event> <!-- camera on -->
-  <event>6 3 2 2 1 0</event> <!-- capture BOTH -->
-  <event>6 3 1 1 1 50</event> <!-- start      -->
-  <event>6 3 1 0 1 1</event>  <!-- end   + sleep for  1 s -->
+  <!-- Change HD to data -->
+  <event>6 3 3 2 1 1</event>  <!-- set the HD to store images to data-->
   
   <event>9 3 7 700 1 0</event> <!-- set exposure to 70 -->
   <event>9 3 10 1080 1 0</event> <!-- set pre-scan rows to 1080,  -->
@@ -1363,7 +1394,6 @@
   <event>6 3 2 2 1 0</event> <!-- capture BOTH -->
   <event>6 3 1 1 1 50</event> <!-- start      -->
   <event>6 3 1 0 1 180</event>  <!-- end   + sleep for 3 min -->
-  
   
   <!-- Shutdown -->
   <event>9 3 5 0 1 10</event> <!-- turn off camera & sleep -->

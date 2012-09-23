@@ -1,0 +1,134 @@
+# /etc/crontab: system-wide crontab
+# Unlike any other crontab you don't have to run the `crontab'
+# command to install the new version when you edit this file
+# and files in /etc/cron.d. These files also have username fields,
+# that none of the other crontabs do.
+
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+# m h dom mon dow user	command
+17 *	* * *	root    cd / && run-parts --report /etc/cron.hourly
+25 6	* * *	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.daily )
+47 6	* * 7	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.weekly )
+52 6	1 * *	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.monthly )
+#
+
+# DAYSTAR crons:
+# Start sched at a desired time (try 10 times every hour to make damn sure it stays running):
+00 0 * * *   root    /home/scripts/playSched.sh
+05 0 * * *   root    /home/scripts/playSched.sh
+10 0 * * *   root    /home/scripts/playSched.sh
+15 0 * * *   root    /home/scripts/playSched.sh
+20 0 * * *   root    /home/scripts/playSched.sh
+25 0 * * *   root    /home/scripts/playSched.sh
+35 0 * * *   root    /home/scripts/playSched.sh
+40 0 * * *   root    /home/scripts/playSched.sh
+45 0 * * *   root    /home/scripts/playSched.sh
+50 0 * * *   root    /home/scripts/playSched.sh
+55 0 * * *   root    /home/scripts/playSched.sh
+
+00 1 * * *   root    /home/scripts/playSched.sh
+05 1 * * *   root    /home/scripts/playSched.sh
+10 1 * * *   root    /home/scripts/playSched.sh
+15 1 * * *   root    /home/scripts/playSched.sh
+20 1 * * *   root    /home/scripts/playSched.sh
+25 1 * * *   root    /home/scripts/playSched.sh
+30 1 * * *   root    /home/scripts/playSched.sh
+35 1 * * *   root    /home/scripts/playSched.sh
+40 1 * * *   root    /home/scripts/playSched.sh
+45 1 * * *   root    /home/scripts/playSched.sh
+50 1 * * *   root    /home/scripts/playSched.sh
+55 1 * * *   root    /home/scripts/playSched.sh
+
+00 2 * * *   root    /home/scripts/playSched.sh
+05 2 * * *   root    /home/scripts/playSched.sh
+10 2 * * *   root    /home/scripts/playSched.sh
+15 2 * * *   root    /home/scripts/playSched.sh
+20 2 * * *   root    /home/scripts/playSched.sh
+25 2 * * *   root    /home/scripts/playSched.sh
+30 2 * * *   root    /home/scripts/playSched.sh
+35 2 * * *   root    /home/scripts/playSched.sh
+40 2 * * *   root    /home/scripts/playSched.sh
+45 2 * * *   root    /home/scripts/playSched.sh
+50 2 * * *   root    /home/scripts/playSched.sh
+55 2 * * *   root    /home/scripts/playSched.sh
+
+00 3 * * *   root    /home/scripts/playSched.sh
+05 3 * * *   root    /home/scripts/playSched.sh
+10 3 * * *   root    /home/scripts/playSched.sh
+15 3 * * *   root    /home/scripts/playSched.sh
+20 3 * * *   root    /home/scripts/playSched.sh
+25 3 * * *   root    /home/scripts/playSched.sh
+30 3 * * *   root    /home/scripts/playSched.sh
+35 3 * * *   root    /home/scripts/playSched.sh
+40 3 * * *   root    /home/scripts/playSched.sh
+45 3 * * *   root    /home/scripts/playSched.sh
+50 3 * * *   root    /home/scripts/playSched.sh
+55 3 * * *   root    /home/scripts/playSched.sh
+
+00 4 * * *   root    /home/scripts/playSched.sh
+05 4 * * *   root    /home/scripts/playSched.sh
+10 4 * * *   root    /home/scripts/playSched.sh
+15 4 * * *   root    /home/scripts/playSched.sh
+20 4 * * *   root    /home/scripts/playSched.sh
+25 4 * * *   root    /home/scripts/playSched.sh
+30 4 * * *   root    /home/scripts/playSched.sh
+35 4 * * *   root    /home/scripts/playSched.sh
+40 4 * * *   root    /home/scripts/playSched.sh
+45 4 * * *   root    /home/scripts/playSched.sh
+50 4 * * *   root    /home/scripts/playSched.sh
+55 4 * * *   root    /home/scripts/playSched.sh
+
+00 5 * * *   root    /home/scripts/playSched.sh
+05 5 * * *   root    /home/scripts/playSched.sh
+10 5 * * *   root    /home/scripts/playSched.sh
+15 5 * * *   root    /home/scripts/playSched.sh
+20 5 * * *   root    /home/scripts/playSched.sh
+25 5 * * *   root    /home/scripts/playSched.sh
+30 5 * * *   root    /home/scripts/playSched.sh
+35 5 * * *   root    /home/scripts/playSched.sh
+40 5 * * *   root    /home/scripts/playSched.sh
+45 5 * * *   root    /home/scripts/playSched.sh
+50 5 * * *   root    /home/scripts/playSched.sh
+55 5 * * *   root    /home/scripts/playSched.sh
+
+00 6 * * *   root    /home/scripts/playSched.sh
+05 6 * * *   root    /home/scripts/playSched.sh
+10 6 * * *   root    /home/scripts/playSched.sh
+15 6 * * *   root    /home/scripts/playSched.sh
+20 6 * * *   root    /home/scripts/playSched.sh
+25 6 * * *   root    /home/scripts/playSched.sh
+30 6 * * *   root    /home/scripts/playSched.sh
+35 6 * * *   root    /home/scripts/playSched.sh
+40 6 * * *   root    /home/scripts/playSched.sh
+45 6 * * *   root    /home/scripts/playSched.sh
+50 6 * * *   root    /home/scripts/playSched.sh
+55 6 * * *   root    /home/scripts/playSched.sh
+
+00 7 * * *   root    /home/scripts/playSched.sh
+05 7 * * *   root    /home/scripts/playSched.sh
+10 7 * * *   root    /home/scripts/playSched.sh
+15 7 * * *   root    /home/scripts/playSched.sh
+20 7 * * *   root    /home/scripts/playSched.sh
+25 7 * * *   root    /home/scripts/playSched.sh
+30 7 * * *   root    /home/scripts/playSched.sh
+35 7 * * *   root    /home/scripts/playSched.sh
+40 7 * * *   root    /home/scripts/playSched.sh
+45 7 * * *   root    /home/scripts/playSched.sh
+50 7 * * *   root    /home/scripts/playSched.sh
+55 7 * * *   root    /home/scripts/playSched.sh
+
+###########################################################################
+# DESCRIPTION: ############################################################
+# *    *    *    *    *  command to be executed
+# ┬    ┬    ┬    ┬    ┬
+# │    │    │    │    │
+# │    │    │    │    │
+# │    │    │    │    └───── day of week (0 - 6) (0 is Sunday, or use names)
+# │    │    │    └────────── month (1 - 12)
+# │    │    └─────────────── day of month (1 - 31)
+# │    └──────────────────── hour (0 - 23)
+# └───────────────────────── min (0 - 59)
+###########################################################################
+###########################################################################
